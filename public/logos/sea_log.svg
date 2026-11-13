@@ -1,0 +1,6 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" rx="20" fill="#006070"/>
+  <path d="M22 52C28 42 40 42 46 52C52 62 64 62 70 52C76 42 88 52 82 62C76 72 64 72 58 62C52 52 40 52 34 62C28 72 16 62 22 52Z" fill="#00D2D3"/>
+  <circle cx="50" cy="34" r="10" fill="#FFFFFF"/>
+  <text x="50" y="84" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="11" fill="#FFFFFF" text-anchor="middle">SEA LOG</text>
+</svg>
