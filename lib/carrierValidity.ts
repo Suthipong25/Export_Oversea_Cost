@@ -64,3 +64,22 @@ export function getRouteValidity(carrier: string, region = ''): string {
   // CK LINE, ESL, HEUNG A, HMM, INFINITY, NAMSUNG, RCL, SEA LOG, SEA STAR, SIAM LINER, SINOKOR
   return '1 - 30 พ.ย. 2026 (30 วัน)';
 }
+
+/**
+ * LKB Rail Add-on Values per Carrier (20' / 40')
+ */
+export function getLkbAddonValues(carrier: string, notes = ''): { add20: number; add40: number } {
+  const c = carrier ? carrier.toUpperCase().trim() : '';
+  const n = notes ? notes.toLowerCase() : '';
+
+  if (c === 'SIAM LINER') {
+    return { add20: 150, add40: 300 };
+  }
+  if (c === 'HEUNG A' || n.includes('ex lkb +$100/$150')) {
+    return { add20: 100, add40: 150 };
+  }
+  if (c === 'MARINUS') {
+    return { add20: 200, add40: 200 };
+  }
+  return { add20: 200, add40: 250 };
+}

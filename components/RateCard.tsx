@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { FreightRate, CarrierKnowledge } from '../types';
-import { getRouteValidity } from '../lib/carrierValidity';
+import { getRouteValidity, getLkbAddonValues } from '../lib/carrierValidity';
 
 interface RateCardProps {
   rate: FreightRate;
@@ -15,6 +15,7 @@ interface RateCardProps {
   isBestPrice: boolean;
   isFastest: boolean;
   exchangeRate?: number;
+  onSelectContainer?: (type: string) => void;
 }
 
 const CARRIER_LOGO_MAP: Record<string, string> = {
@@ -46,36 +47,48 @@ export const RateCard: React.FC<RateCardProps> = ({
   origin,
   isBestPrice,
   isFastest,
-  exchangeRate = 33.86
+  exchangeRate = 33.86,
+  onSelectContainer
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const actualValidity = rate.validity || getRouteValidity(rate.carrier, rate.region);
+  const lkbAddon = getLkbAddonValues(rate.carrier, rate.notes);
 
   const fxRate = exchangeRate && exchangeRate > 0 ? exchangeRate : 33.86;
   const is20 = containerType === '20';
   const isLKB = origin === 'LKB';
 
+  const handleSelectContainer = (type: string) => {
+    if (onSelectContainer) {
+      onSelectContainer(type);
+    }
+  };
+
   const baseOf = is20 ? rate.rate20 : rate.rate40;
-  const lkbFee = isLKB ? (is20 ? 200 : 250) : 0;
+  const lkbFee = isLKB ? (is20 ? lkbAddon.add20 : lkbAddon.add40) : 0;
   const finalOfUsd = (baseOf + lkbFee) * quantity;
 
   const lc = rate.localCharges || { thc20: 2800, thc40: 4300, bl: 1500, seal: 300, telex: 1500 };
   const baseThc = is20 ? lc.thc20 : lc.thc40;
-  const finalLocalThb = (baseThc + lc.seal) * quantity + (lc.bl + (lc.telex || 0));
-  const finalLocalUsd = finalLocalThb / fxRate;
+  const thcUsd = Math.round((baseThc * quantity) / fxRate);
+  const blUsd = Math.round(lc.bl / fxRate);
+  const sealUsd = Math.round((lc.seal * quantity) / fxRate);
+  const telexUsd = lc.telex ? Math.round(lc.telex / fxRate) : 0;
+  const itemizedLocalUsd = thcUsd + blUsd + sealUsd + telexUsd;
 
-  const grandTotalUsd = finalOfUsd + finalLocalUsd;
-  const grandTotalThb = grandTotalUsd * fxRate;
+  const grandTotalUsd = finalOfUsd + itemizedLocalUsd;
 
   const logoFile = CARRIER_LOGO_MAP[rate.carrier];
 
   return (
     <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 hover:shadow-md hover:border-slate-300 transition-all duration-150">
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
         
-        {/* Carrier Identity & Route */}
-        <div className="flex-1">
-          <div className="flex flex-wrap items-center gap-2 mb-2.5">
+        {/* Carrier Identity & Route Details */}
+        <div className="flex-1 min-w-0">
+          
+          {/* 1. Status & Route Badges */}
+          <div className="flex flex-wrap items-center gap-2 mb-3">
             {isBestPrice && (
               <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 border border-emerald-300/80 text-[11px] font-bold px-2.5 py-0.5 rounded">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
@@ -88,18 +101,26 @@ export const RateCard: React.FC<RateCardProps> = ({
                 ระยะเวลาสั้นสุด
               </span>
             )}
-            <span className="text-xs font-semibold text-slate-500">{rate.region || 'International Route'}</span>
-            <span className={`text-xs font-semibold ${rate.routing === 'DIRECT' ? 'text-emerald-800 bg-emerald-50/80 border border-emerald-200' : 'text-amber-800 bg-amber-50/80 border border-amber-200'} px-2 py-0.5 rounded`}>
-              {rate.routing === 'DIRECT' ? 'เรือตรง' : 'เรือต่อ (T/S)'} • {rate.tt}
+            
+            {/* Route: POL -> POD (Country) */}
+            <span className="text-xs font-semibold text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded">
+              {rate.pol || 'LCH/BKK'} ➔ <strong className="text-slate-900 font-bold">{rate.pod}</strong>
+              {rate.region ? ` (${rate.region})` : ''}
             </span>
-            <span className="text-xs text-slate-400">| ปลายทาง: <strong className="text-slate-800 font-bold">{rate.pod}</strong></span>
-            <span className="text-[11px] font-semibold text-slate-700 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded">
+
+            {/* T/S & T/T */}
+            <span className={`text-xs font-semibold ${rate.routing === 'DIRECT' ? 'text-emerald-800 bg-emerald-50 border border-emerald-200' : 'text-amber-800 bg-amber-50 border border-amber-200'} px-2 py-0.5 rounded`}>
+              {rate.routing === 'DIRECT' ? 'เรือตรง (Direct)' : 'เรือต่อ (T/S)'} • T/T: {rate.tt}
+            </span>
+
+            {/* Valid Date */}
+            <span className="text-[11px] font-semibold text-slate-600 bg-slate-50 border border-slate-200 px-2 py-0.5 rounded">
               รอบราคา: {actualValidity}
             </span>
           </div>
 
-          {/* Logo & Carrier Info */}
-          <div className="flex items-center gap-3.5">
+          {/* 2. Logo & Carrier Info */}
+          <div className="flex items-start sm:items-center gap-3.5">
             <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 p-1 flex items-center justify-center shadow-2xs shrink-0">
               {logoFile ? (
                 <Image
@@ -116,34 +137,74 @@ export const RateCard: React.FC<RateCardProps> = ({
               )}
             </div>
 
-            <div>
-              <h3 className="text-lg font-bold text-slate-900 tracking-tight">{rate.carrier}</h3>
-              <div className="flex flex-wrap items-center gap-x-4 text-xs text-slate-600 mt-0.5 font-medium">
-                <span><strong className="text-slate-700">กำหนดออกเรือ:</strong> {rate.schedule || 'Weekly Regular'}</span>
-                <span><strong className="text-slate-700">สายการเดินเรือ:</strong> {rate.routingDetail || rate.routing}</span>
-                <span><strong className="text-slate-700">ท่าเรือต้นทาง (POL):</strong> {rate.pol || 'LCH / BKK'}</span>
-                <span className="text-slate-700 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded text-[11px] font-semibold">
-                  วันฟรีตู้: {knowledge.freeTime || '14 Days Combined'}
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <h3 className="text-lg font-bold text-slate-900 tracking-tight">{rate.carrier}</h3>
+                <span className="text-xs text-slate-500 font-medium">กำหนดออกเรือ: {rate.schedule || 'Weekly Regular'}</span>
+              </div>
+
+              {/* Subline specs: F/T, LKB Add-on */}
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-600 mt-1 font-medium">
+                <span>
+                  <strong className="text-slate-700">วันฟรีตู้ (F/T):</strong> {knowledge.freeTime || '14 Days Combined at POD'}
+                </span>
+                <span className="text-slate-300">•</span>
+                <span>
+                  <strong className="text-slate-700">ICD ลาดกระบัง (LKB):</strong> 20&apos;: +${lkbAddon.add20} | 40&apos;: +${lkbAddon.add40}
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Notes & Toggle */}
-          <div className="mt-3.5 bg-slate-50 rounded-xl p-3 border border-slate-200/70 text-xs">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <div className="text-slate-700 font-medium">
-                <span className="font-bold text-slate-900">เงื่อนไขเส้นทาง:</span> {rate.notes || 'ค่าระวางมาตรฐานตามรอบความถูกต้อง'}
-                {isLKB && (
-                  <span className="ml-2 font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-                    + รวมค่ารถไฟ ICD ลาดกระบังแล้ว
-                  </span>
-                )}
+          {/* 3. Rates & Remarks Bar (Sleek horizontal strip) */}
+          <div className="mt-3.5 bg-slate-50 rounded-xl p-3 border border-slate-200/80 text-xs flex flex-col md:flex-row md:items-center justify-between gap-3">
+            {/* Rate 20'GP & Rate 40'HQ Interactive Pill */}
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="font-bold text-slate-600 text-[11px] uppercase tracking-wider">ค่าระวาง (USD):</span>
+              <div className="inline-flex items-center bg-white border border-slate-200 rounded-lg p-0.5 text-xs font-bold shadow-2xs">
+                <button
+                  type="button"
+                  onClick={() => handleSelectContainer('20')}
+                  className={`px-2.5 py-1 rounded-md transition-all tabular-nums cursor-pointer ${
+                    is20
+                      ? 'bg-blue-600 text-white shadow-2xs font-extrabold'
+                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`}
+                  title="คลิกเพื่อสลับเป็นตู้ 20'GP"
+                >
+                  20&apos;GP: ${rate.rate20.toLocaleString()}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSelectContainer('40hc')}
+                  className={`px-2.5 py-1 rounded-md transition-all tabular-nums cursor-pointer ${
+                    !is20
+                      ? 'bg-blue-600 text-white shadow-2xs font-extrabold'
+                      : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  }`}
+                  title="คลิกเพื่อสลับเป็นตู้ 40'HQ"
+                >
+                  40&apos;HQ: ${rate.rate40.toLocaleString()}
+                </button>
               </div>
+              {isLKB && (
+                <span className="text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded">
+                  + ค่ารถไฟ LKB แล้ว
+                </span>
+              )}
+            </div>
+
+            {/* Remarks & Toggle */}
+            <div className="flex items-center justify-between md:justify-end gap-3 text-xs">
+              {rate.notes && (
+                <span className="text-slate-600 truncate max-w-xs" title={rate.notes}>
+                  <strong className="text-slate-700">เงื่อนไข:</strong> {rate.notes}
+                </span>
+              )}
               <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-slate-700 hover:text-blue-700 font-semibold underline underline-offset-2 cursor-pointer text-right shrink-0 flex items-center gap-1 transition-colors"
+                className="text-blue-700 hover:text-blue-800 font-bold underline underline-offset-2 cursor-pointer text-right shrink-0 flex items-center gap-1 transition-colors text-xs"
               >
                 <span>{isOpen ? 'ซ่อนแจกแจงต้นทุน' : 'ดูแจกแจงต้นทุน & ข้อกำหนด'}</span>
                 {isOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
@@ -176,7 +237,6 @@ export const RateCard: React.FC<RateCardProps> = ({
                     </div>
                     <span className="font-bold text-slate-900 tabular-nums">
                       ${Math.round(baseOf * quantity).toLocaleString('en-US')}
-                      <span className="text-slate-500 font-normal ml-1.5">(~฿{Math.round(baseOf * quantity * fxRate).toLocaleString('th-TH')} บาท)</span>
                     </span>
                   </div>
 
@@ -190,15 +250,14 @@ export const RateCard: React.FC<RateCardProps> = ({
                       </div>
                       <span className="font-semibold text-slate-800 tabular-nums">
                         ${Math.round(lkbFee * quantity).toLocaleString('en-US')}
-                        <span className="text-slate-500 font-normal ml-1.5">(~฿{Math.round(lkbFee * quantity * fxRate).toLocaleString('th-TH')} บาท)</span>
                       </span>
                     </div>
                   )}
 
-                  {/* Local Charges Section Header */}
+                  {/* Local Charges Section Header (USD) */}
                   <div className="px-3 py-1.5 bg-slate-100/70 text-[11px] font-bold text-slate-700 flex items-center justify-between">
                     <span>ค่าใช้จ่ายท้องถิ่นในไทย (Local Charges in Thailand):</span>
-                    <span className="text-slate-600 font-semibold">รวม ฿{Math.round(finalLocalThb).toLocaleString('th-TH')} บาท (~${Math.round(finalLocalUsd).toLocaleString('en-US')})</span>
+                    <span className="text-slate-900 font-bold tabular-nums">รวม ${itemizedLocalUsd.toLocaleString('en-US')}</span>
                   </div>
 
                   {/* 2. THC */}
@@ -206,10 +265,10 @@ export const RateCard: React.FC<RateCardProps> = ({
                     <div className="flex items-center gap-2">
                       <span className="w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
                       <span className="text-slate-700">ค่าภาระยกขนตู้สินค้าที่ท่าเรือ (Terminal Handling Charge - THC)</span>
-                      <span className="text-slate-400 text-[11px]">(฿{baseThc.toLocaleString()} x {quantity} ตู้)</span>
+                      <span className="text-slate-400 text-[11px]">(${Math.round(baseThc / fxRate)} x {quantity} ตู้)</span>
                     </div>
                     <span className="font-semibold text-slate-800 tabular-nums">
-                      ฿{(baseThc * quantity).toLocaleString('th-TH')} บาท
+                      ${thcUsd.toLocaleString('en-US')}
                     </span>
                   </div>
 
@@ -221,7 +280,7 @@ export const RateCard: React.FC<RateCardProps> = ({
                       <span className="text-slate-400 text-[11px]">(ต่อฉบับ)</span>
                     </div>
                     <span className="font-semibold text-slate-800 tabular-nums">
-                      ฿{lc.bl.toLocaleString('th-TH')} บาท
+                      ${blUsd.toLocaleString('en-US')}
                     </span>
                   </div>
 
@@ -230,10 +289,10 @@ export const RateCard: React.FC<RateCardProps> = ({
                     <div className="flex items-center gap-2">
                       <span className="w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
                       <span className="text-slate-700">ค่าซีลล็อคตู้คอนเทนเนอร์ (Container Seal Security Fee)</span>
-                      <span className="text-slate-400 text-[11px]">(฿{lc.seal.toLocaleString()} x {quantity} ตู้)</span>
+                      <span className="text-slate-400 text-[11px]">(${Math.round(lc.seal / fxRate)} x {quantity} ตู้)</span>
                     </div>
                     <span className="font-semibold text-slate-800 tabular-nums">
-                      ฿{(lc.seal * quantity).toLocaleString('th-TH')} บาท
+                      ${sealUsd.toLocaleString('en-US')}
                     </span>
                   </div>
 
@@ -246,17 +305,16 @@ export const RateCard: React.FC<RateCardProps> = ({
                         <span className="text-slate-400 text-[11px]">(ต่อฉบับ)</span>
                       </div>
                       <span className="font-semibold text-slate-800 tabular-nums">
-                        ฿{lc.telex.toLocaleString('th-TH')} บาท
+                        ${telexUsd.toLocaleString('en-US')}
                       </span>
                     </div>
                   ) : null}
 
-                  {/* Total Row */}
+                  {/* Total Row (Pure USD) */}
                   <div className="p-2.5 bg-slate-100/90 flex items-center justify-between font-bold text-slate-900 border-t border-slate-200">
                     <span>รวมประมาณการต้นทุน All-In ทั้งหมด (Grand Total):</span>
-                    <span className="tabular-nums text-sm text-slate-900">
+                    <span className="tabular-nums text-base font-extrabold text-slate-900">
                       ${Math.round(grandTotalUsd).toLocaleString('en-US')}
-                      <span className="text-xs font-semibold text-slate-600 ml-1.5">(~฿{Math.round(grandTotalThb).toLocaleString('th-TH')} บาท)</span>
                     </span>
                   </div>
                 </div>
@@ -290,15 +348,36 @@ export const RateCard: React.FC<RateCardProps> = ({
         {/* Ocean Freight Rate Box */}
         <div className="lg:border-l lg:border-slate-200 lg:pl-6 text-left lg:text-right flex flex-col justify-between shrink-0">
           <div>
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
-              ค่าระวางเรือ Ocean Freight
-            </span>
+            <div className="flex items-center lg:justify-end gap-1.5">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
+                ค่าระวางเรือ Ocean Freight
+              </span>
+              <span className="text-[10px] font-bold text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">
+                USD
+              </span>
+            </div>
             <div className="text-3xl font-extrabold text-slate-900 tracking-tight tabular-nums mt-0.5">
               ${Math.round(finalOfUsd).toLocaleString('en-US')}
             </div>
-            <div className="text-xs font-semibold text-slate-600 tabular-nums mt-1">
-              ~฿{Math.round(finalOfUsd * fxRate).toLocaleString('th-TH')} บาท
-              <span className="text-slate-400 font-normal ml-1">({quantity} ตู้)</span>
+            <div className="text-xs font-semibold text-slate-500 mt-1">
+              สำหรับ {quantity} ตู้ ({is20 ? "20'GP" : "40'HQ"})
+            </div>
+            <div className="text-[11px] font-semibold text-slate-500 mt-2 pt-2 border-t border-slate-100 tabular-nums flex items-center lg:justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => handleSelectContainer('20')}
+                className={`cursor-pointer transition-colors ${is20 ? 'text-blue-700 font-bold underline' : 'text-slate-600 hover:text-slate-900'}`}
+              >
+                20&apos;GP: ${rate.rate20}
+              </button>
+              <span>•</span>
+              <button
+                type="button"
+                onClick={() => handleSelectContainer('40hc')}
+                className={`cursor-pointer transition-colors ${!is20 ? 'text-blue-700 font-bold underline' : 'text-slate-600 hover:text-slate-900'}`}
+              >
+                40&apos;HQ: ${rate.rate40}
+              </button>
             </div>
           </div>
         </div>

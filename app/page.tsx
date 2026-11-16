@@ -10,8 +10,9 @@ import { ContainerSelector } from '../components/ContainerSelector';
 import { RateCard } from '../components/RateCard';
 import { RemarksModal } from '../components/RemarksModal';
 import { PdfUploaderModal } from '../components/PdfUploaderModal';
-import { Zap, DollarSign, Search, AlertCircle } from 'lucide-react';
+import { Zap, DollarSign, Search, AlertCircle, Table, LayoutGrid, Copy, Check } from 'lucide-react';
 import { isPolMatch, isPodMatch } from '../lib/routeMatcher';
+import { getRouteValidity, getLkbAddonValues } from '../lib/carrierValidity';
 
 export default function Home() {
   // Database States
@@ -38,6 +39,8 @@ export default function Home() {
   // Sort & Filters
   const [sortOption, setSortOption] = useState<'price' | 'transit'>('price');
   const [directOnly, setDirectOnly] = useState(false);
+  const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards');
+  const [copiedTable, setCopiedTable] = useState(false);
 
   // Modals
   const [isRemarksOpen, setIsRemarksOpen] = useState(false);
@@ -83,6 +86,59 @@ export default function Home() {
   const showToast = (msg: string) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 5000);
+  };
+
+  const handleCopyTable = () => {
+    const headers = [
+      'POL',
+      'POD',
+      'COUNTRY',
+      'CARRIER',
+      'CURRENCY',
+      "RATE 20'GP",
+      "RATE 40'HQ",
+      "LKB ADD ON PER 20'/40'",
+      'T/S',
+      'T/T',
+      'F/T',
+      'Valid date',
+      'LOCAL CHARGE',
+      'REMARKS'
+    ];
+
+    const rows = filteredRates.map((r) => {
+      const lkb = getLkbAddonValues(r.carrier, r.notes);
+      const validity = r.validity || getRouteValidity(r.carrier, r.region);
+      const kb = knowledgeBase[r.carrier] || {};
+      const lc = r.localCharges || { thc20: 2800, thc40: 4300, bl: 1500, seal: 300, telex: 1500 };
+      const thcUsd = Math.round(lc.thc40 / (exchangeRate || 33.86));
+      const blUsd = Math.round(lc.bl / (exchangeRate || 33.86));
+      const sealUsd = Math.round(lc.seal / (exchangeRate || 33.86));
+      const lcSummary = `THC: $${thcUsd} | B/L: $${blUsd} | Seal: $${sealUsd}`;
+
+      return [
+        r.pol || (origin === 'LCH' ? 'Laem Chabang' : origin === 'BKK' ? 'Bangkok' : 'Lat Krabang'),
+        r.pod,
+        r.region || 'International',
+        r.carrier,
+        'USD',
+        `$${r.rate20}`,
+        `$${r.rate40}`,
+        `+$${lkb.add20} / +$${lkb.add40}`,
+        r.routing === 'DIRECT' ? 'DIRECT' : 'T/S',
+        r.tt,
+        kb.freeTime || '14 Days Combined',
+        validity,
+        lcSummary,
+        r.notes || '-'
+      ].join('\t');
+    });
+
+    const fullTsv = [headers.join('\t'), ...rows].join('\n');
+    navigator.clipboard.writeText(fullTsv);
+    setCopiedTable(true);
+    setTimeout(() => setCopiedTable(false), 3000);
+    showToast('📋 คัดลอกข้อมูลตาราง 13 หัวข้อลง Clipboard แล้ว (วางลง Excel ได้ทันที!)');
   };
 
   const fetchLiveRates = async () => {
@@ -371,11 +427,46 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 text-xs">
+              <div className="flex flex-wrap items-center gap-2.5 text-xs">
+                {/* View Mode Toggle */}
+                <div className="inline-flex bg-slate-100 p-1 rounded-lg border border-slate-200/80">
+                  <button
+                    onClick={() => setViewMode('cards')}
+                    className={`px-2.5 py-1.5 rounded-md font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                      viewMode === 'cards' ? 'bg-white text-slate-900 shadow-2xs' : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                    title="มุมมองการ์ด"
+                  >
+                    <LayoutGrid className="w-3.5 h-3.5" />
+                    <span>การ์ด</span>
+                  </button>
+                  <button
+                    onClick={() => setViewMode('table')}
+                    className={`px-2.5 py-1.5 rounded-md font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                      viewMode === 'table' ? 'bg-white text-slate-900 shadow-2xs' : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                    title="มุมมองตารางเปรียบเทียบ 13 หัวข้อ"
+                  >
+                    <Table className="w-3.5 h-3.5" />
+                    <span>ตาราง 13 หัวข้อ</span>
+                  </button>
+                </div>
+
+                {/* Copy Table to Clipboard Button */}
+                <button
+                  onClick={handleCopyTable}
+                  className="px-2.5 py-1.5 rounded-lg font-semibold flex items-center gap-1.5 transition-all cursor-pointer border border-slate-200 bg-white hover:bg-slate-50 text-slate-700"
+                  title="คัดลอกตาราง 13 หัวข้อไปวางใน Excel หรือ Google Sheets"
+                >
+                  {copiedTable ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copiedTable ? 'คัดลอกแล้ว!' : 'คัดลอกลง Excel'}</span>
+                </button>
+
+                {/* Sort Option */}
                 <div className="inline-flex bg-slate-100 p-1 rounded-lg border border-slate-200/80">
                   <button
                     onClick={() => setSortOption('price')}
-                    className={`px-3 py-1.5 rounded-md font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                    className={`px-2.5 py-1.5 rounded-md font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
                       sortOption === 'price' ? 'bg-white text-slate-900 shadow-2xs' : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
@@ -384,7 +475,7 @@ export default function Home() {
                   </button>
                   <button
                     onClick={() => setSortOption('transit')}
-                    className={`px-3 py-1.5 rounded-md font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                    className={`px-2.5 py-1.5 rounded-md font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
                       sortOption === 'transit' ? 'bg-white text-slate-900 shadow-2xs' : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
@@ -404,22 +495,108 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Rate Cards List */}
-            <div className="space-y-4">
-              {filteredRates.map((r, idx) => (
-                <RateCard
-                  key={`${r.carrier}-${r.pod}-${idx}`}
-                  rate={r}
-                  knowledge={knowledgeBase[r.carrier]}
-                  containerType={containerType}
-                  quantity={quantity}
-                  origin={origin}
-                  exchangeRate={exchangeRate}
-                  isBestPrice={((r as any).ofUsd ?? r.grandTotalUsd) === minPrice}
-                  isFastest={r.days === minDays && r.days < 99}
-                />
-              ))}
-            </div>
+            {/* Content Display: Cards vs 13-Column Table View */}
+            {viewMode === 'cards' ? (
+              <div className="space-y-4">
+                {filteredRates.map((r, idx) => (
+                  <RateCard
+                    key={`${r.carrier}-${r.pod}-${idx}`}
+                    rate={r}
+                    knowledge={knowledgeBase[r.carrier]}
+                    containerType={containerType}
+                    quantity={quantity}
+                    origin={origin}
+                    exchangeRate={exchangeRate}
+                    onSelectContainer={setContainerType}
+                    isBestPrice={((r as any).ofUsd ?? r.grandTotalUsd) === minPrice}
+                    isFastest={r.days === minDays && r.days < 99}
+                  />
+                ))}
+              </div>
+            ) : (
+              /* 13-Column Standard Tariff Table */
+              <div className="bg-white rounded-2xl border border-slate-200/90 shadow-2xs overflow-hidden">
+                <div className="p-4 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="text-xs">
+                    <span className="font-bold text-slate-900 text-sm">ตารางเปรียบเทียบอัตราค่าระวาง 13 หัวข้อมาตรฐาน</span>
+                    <p className="text-slate-500 mt-0.5">เรียงข้อมูลตามมาตรฐาน Tariff Sheet (กดปุ่ม &ldquo;คัดลอกลง Excel&rdquo; ด้านบนเพื่อคัดลอกข้อมูลได้ทันที)</p>
+                  </div>
+                  <span className="text-xs font-semibold px-2 py-0.5 bg-blue-50 text-blue-800 border border-blue-200 rounded self-start sm:self-auto">
+                    {filteredRates.length} รายการ
+                  </span>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs text-left border-collapse">
+                    <thead>
+                      <tr className="bg-slate-900 text-white font-bold uppercase tracking-wider text-[11px] whitespace-nowrap">
+                        <th className="py-3 px-3">POL</th>
+                        <th className="py-3 px-3">POD</th>
+                        <th className="py-3 px-3">COUNTRY</th>
+                        <th className="py-3 px-3">CARRIER</th>
+                        <th className="py-3 px-3 text-center">CURRENCY</th>
+                        <th className="py-3 px-3 text-right">RATE 20&apos;GP</th>
+                        <th className="py-3 px-3 text-right">RATE 40&apos;HQ</th>
+                        <th className="py-3 px-3 text-center">LKB ADD ON PER 20&apos;/40&apos;</th>
+                        <th className="py-3 px-3 text-center">T/S</th>
+                        <th className="py-3 px-3 text-center">T/T</th>
+                        <th className="py-3 px-3">F/T</th>
+                        <th className="py-3 px-3">Valid date</th>
+                        <th className="py-3 px-3">LOCAL CHARGE</th>
+                        <th className="py-3 px-4 min-w-[200px]">REMARKS</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 font-medium text-slate-800">
+                      {filteredRates.map((r, i) => {
+                        const lkb = getLkbAddonValues(r.carrier, r.notes);
+                        const validity = r.validity || getRouteValidity(r.carrier, r.region);
+                        const kb = knowledgeBase[r.carrier] || {};
+                        const lc = r.localCharges || { thc20: 2800, thc40: 4300, bl: 1500, seal: 300, telex: 1500 };
+
+                        return (
+                          <tr key={i} className="hover:bg-blue-50/50 transition-colors">
+                            <td className="py-2.5 px-3 font-semibold text-slate-900 whitespace-nowrap">
+                              {r.pol || (origin === 'LCH' ? 'Laem Chabang' : origin === 'BKK' ? 'Bangkok' : 'Lat Krabang')}
+                            </td>
+                            <td className="py-2.5 px-3 font-bold text-slate-900 whitespace-nowrap">{r.pod}</td>
+                            <td className="py-2.5 px-3 whitespace-nowrap">{r.region || 'International'}</td>
+                            <td className="py-2.5 px-3 font-bold text-blue-900 whitespace-nowrap">{r.carrier}</td>
+                            <td className="py-2.5 px-3 text-center">
+                              <span className="text-[10px] font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded">
+                                USD
+                              </span>
+                            </td>
+                            <td className="py-2.5 px-3 text-right font-bold tabular-nums text-slate-900 whitespace-nowrap">
+                              ${r.rate20.toLocaleString()}
+                            </td>
+                            <td className="py-2.5 px-3 text-right font-bold tabular-nums text-slate-900 whitespace-nowrap">
+                              ${r.rate40.toLocaleString()}
+                            </td>
+                            <td className="py-2.5 px-3 text-center text-amber-900 font-semibold whitespace-nowrap text-[11px]">
+                              +${lkb.add20} / +${lkb.add40}
+                            </td>
+                            <td className="py-2.5 px-3 text-center whitespace-nowrap">
+                              <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded ${
+                                r.routing === 'DIRECT' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' : 'bg-amber-50 text-amber-800 border border-amber-200'
+                              }`}>
+                                {r.routing === 'DIRECT' ? 'DIRECT' : 'T/S'}
+                              </span>
+                            </td>
+                            <td className="py-2.5 px-3 text-center font-semibold text-slate-800 whitespace-nowrap">{r.tt}</td>
+                            <td className="py-2.5 px-3 whitespace-nowrap text-slate-700">{kb.freeTime || '14 Days Combined'}</td>
+                            <td className="py-2.5 px-3 whitespace-nowrap text-slate-700 font-semibold">{validity}</td>
+                            <td className="py-2.5 px-3 whitespace-nowrap text-[11px] text-slate-700">
+                              THC: ${Math.round(lc.thc40 / (exchangeRate || 33.86))} | B/L: ${Math.round(lc.bl / (exchangeRate || 33.86))} | Seal: ${Math.round(lc.seal / (exchangeRate || 33.86))}
+                            </td>
+                            <td className="py-2.5 px-4 text-slate-600 text-[11px]">{r.notes || '-'}</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
           </>
         )}
 
