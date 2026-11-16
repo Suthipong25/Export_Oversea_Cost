@@ -165,6 +165,7 @@ export default function Home() {
 
       return {
         ...item,
+        ofUsd,
         grandTotalUsd,
         days
       };
@@ -172,7 +173,7 @@ export default function Home() {
 
     // Sort
     calculated.sort((a, b) => {
-      if (sortOption === 'price') return a.grandTotalUsd - b.grandTotalUsd;
+      if (sortOption === 'price') return a.ofUsd - b.ofUsd;
       return a.days - b.days;
     });
 
@@ -181,7 +182,7 @@ export default function Home() {
 
   const minPrice = useMemo(() => {
     if (filteredRates.length === 0) return 0;
-    return Math.min(...filteredRates.map(r => r.grandTotalUsd));
+    return Math.min(...filteredRates.map(r => (r as any).ofUsd ?? r.grandTotalUsd));
   }, [filteredRates]);
 
   const minDays = useMemo(() => {
@@ -414,7 +415,7 @@ export default function Home() {
                   quantity={quantity}
                   origin={origin}
                   exchangeRate={exchangeRate}
-                  isBestPrice={r.grandTotalUsd === minPrice}
+                  isBestPrice={((r as any).ofUsd ?? r.grandTotalUsd) === minPrice}
                   isFastest={r.days === minDays && r.days < 99}
                 />
               ))}

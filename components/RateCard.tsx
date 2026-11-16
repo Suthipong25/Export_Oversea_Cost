@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { FreightRate, CarrierKnowledge } from '../types';
-import { useRateCycle } from '../lib/rateCycle';
+import { getRouteValidity } from '../lib/carrierValidity';
 
 interface RateCardProps {
   rate: FreightRate;
@@ -49,7 +49,7 @@ export const RateCard: React.FC<RateCardProps> = ({
   exchangeRate = 33.86
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { period: rateCyclePeriod } = useRateCycle();
+  const actualValidity = rate.validity || getRouteValidity(rate.carrier, rate.region);
 
   const fxRate = exchangeRate && exchangeRate > 0 ? exchangeRate : 33.86;
   const is20 = containerType === '20';
@@ -93,6 +93,9 @@ export const RateCard: React.FC<RateCardProps> = ({
               {rate.routing === 'DIRECT' ? 'เรือตรง' : 'เรือต่อ (T/S)'} • {rate.tt}
             </span>
             <span className="text-xs text-slate-400">| ปลายทาง: <strong className="text-slate-800 font-bold">{rate.pod}</strong></span>
+            <span className="text-[11px] font-semibold text-slate-700 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded">
+              รอบราคา: {actualValidity}
+            </span>
           </div>
 
           {/* Logo & Carrier Info */}
@@ -152,16 +155,110 @@ export const RateCard: React.FC<RateCardProps> = ({
           {isOpen && (
             <div className="mt-3.5 p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-3.5 transition-all">
               
-              {/* Financial Breakdown */}
-              <div className="space-y-2 pb-3 border-b border-slate-200">
-                <div className="font-bold text-slate-900 uppercase tracking-wider text-[11px]">แจกแจงโครงสร้างต้นทุน (Cost Breakdown):</div>
-                <div className="flex justify-between text-slate-800 font-medium text-xs">
-                  <span>ค่าระวางเรือ Ocean Freight ({quantity} ตู้ x ${baseOf + lkbFee}):</span>
-                  <span className="font-bold text-slate-900 tabular-nums">${Math.round(finalOfUsd).toLocaleString('en-US')} (~฿{Math.round(finalOfUsd * fxRate).toLocaleString('th-TH')} บาท)</span>
+              {/* Financial Breakdown (Itemized Table) */}
+              <div className="space-y-2.5 pb-3.5 border-b border-slate-200">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-slate-900 uppercase tracking-wider text-[11px]">
+                    แจกแจงโครงสร้างต้นทุน (Cost Breakdown)
+                  </span>
+                  <span className="text-[11px] text-slate-500 font-medium">
+                    สำหรับ {quantity} ตู้ ({containerType === '20' ? "20' Standard" : containerType === '40' ? "40' Standard" : containerType === '45' ? "45' High Cube" : "40' High Cube"})
+                  </span>
                 </div>
-                <div className="flex justify-between text-slate-800 font-medium text-xs">
-                  <span>Local Charges ในไทย (THC ฿{baseThc.toLocaleString()} + B/L ฿{lc.bl.toLocaleString()} + Seal ฿{lc.seal} + Telex ฿{lc.telex || 0}):</span>
-                  <span className="font-bold text-slate-900 tabular-nums">฿{Math.round(finalLocalThb).toLocaleString('th-TH')} บาท (~${Math.round(finalLocalUsd).toLocaleString('en-US')})</span>
+
+                <div className="bg-white border border-slate-200/90 rounded-xl overflow-hidden divide-y divide-slate-100 text-xs shadow-2xs">
+                  {/* 1. Ocean Freight */}
+                  <div className="p-2.5 flex items-center justify-between hover:bg-slate-50/70 transition-colors">
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0"></span>
+                      <span className="font-semibold text-slate-800">ค่าระวางเรือ Ocean Freight</span>
+                      <span className="text-slate-400 text-[11px]">(${baseOf} x {quantity} ตู้)</span>
+                    </div>
+                    <span className="font-bold text-slate-900 tabular-nums">
+                      ${Math.round(baseOf * quantity).toLocaleString('en-US')}
+                      <span className="text-slate-500 font-normal ml-1.5">(~฿{Math.round(baseOf * quantity * fxRate).toLocaleString('th-TH')} บาท)</span>
+                    </span>
+                  </div>
+
+                  {/* 1.1 LKB Rail Fee if applicable */}
+                  {isLKB && lkbFee > 0 && (
+                    <div className="p-2.5 flex items-center justify-between hover:bg-slate-50/70 transition-colors pl-6 bg-amber-50/30">
+                      <div className="flex items-center gap-2">
+                        <span className="w-1 h-1 rounded-full bg-amber-600 shrink-0"></span>
+                        <span className="font-medium text-slate-700">ค่าขนส่งทางรถไฟ ICD ลาดกระบัง (Rail Add-on)</span>
+                        <span className="text-slate-400 text-[11px]">(${lkbFee} x {quantity} ตู้)</span>
+                      </div>
+                      <span className="font-semibold text-slate-800 tabular-nums">
+                        ${Math.round(lkbFee * quantity).toLocaleString('en-US')}
+                        <span className="text-slate-500 font-normal ml-1.5">(~฿{Math.round(lkbFee * quantity * fxRate).toLocaleString('th-TH')} บาท)</span>
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Local Charges Section Header */}
+                  <div className="px-3 py-1.5 bg-slate-100/70 text-[11px] font-bold text-slate-700 flex items-center justify-between">
+                    <span>ค่าใช้จ่ายท้องถิ่นในไทย (Local Charges in Thailand):</span>
+                    <span className="text-slate-600 font-semibold">รวม ฿{Math.round(finalLocalThb).toLocaleString('th-TH')} บาท (~${Math.round(finalLocalUsd).toLocaleString('en-US')})</span>
+                  </div>
+
+                  {/* 2. THC */}
+                  <div className="p-2.5 flex items-center justify-between hover:bg-slate-50/70 transition-colors pl-6">
+                    <div className="flex items-center gap-2">
+                      <span className="w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
+                      <span className="text-slate-700">ค่าภาระยกขนตู้สินค้าที่ท่าเรือ (Terminal Handling Charge - THC)</span>
+                      <span className="text-slate-400 text-[11px]">(฿{baseThc.toLocaleString()} x {quantity} ตู้)</span>
+                    </div>
+                    <span className="font-semibold text-slate-800 tabular-nums">
+                      ฿{(baseThc * quantity).toLocaleString('th-TH')} บาท
+                    </span>
+                  </div>
+
+                  {/* 3. B/L Fee */}
+                  <div className="p-2.5 flex items-center justify-between hover:bg-slate-50/70 transition-colors pl-6">
+                    <div className="flex items-center gap-2">
+                      <span className="w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
+                      <span className="text-slate-700">ค่าธรรมเนียมเอกสารใบตราส่งสินค้า (B/L Documentation Fee)</span>
+                      <span className="text-slate-400 text-[11px]">(ต่อฉบับ)</span>
+                    </div>
+                    <span className="font-semibold text-slate-800 tabular-nums">
+                      ฿{lc.bl.toLocaleString('th-TH')} บาท
+                    </span>
+                  </div>
+
+                  {/* 4. Seal */}
+                  <div className="p-2.5 flex items-center justify-between hover:bg-slate-50/70 transition-colors pl-6">
+                    <div className="flex items-center gap-2">
+                      <span className="w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
+                      <span className="text-slate-700">ค่าซีลล็อคตู้คอนเทนเนอร์ (Container Seal Security Fee)</span>
+                      <span className="text-slate-400 text-[11px]">(฿{lc.seal.toLocaleString()} x {quantity} ตู้)</span>
+                    </div>
+                    <span className="font-semibold text-slate-800 tabular-nums">
+                      ฿{(lc.seal * quantity).toLocaleString('th-TH')} บาท
+                    </span>
+                  </div>
+
+                  {/* 5. Telex / Surrender if exists */}
+                  {lc.telex && lc.telex > 0 ? (
+                    <div className="p-2.5 flex items-center justify-between hover:bg-slate-50/70 transition-colors pl-6">
+                      <div className="flex items-center gap-2">
+                        <span className="w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
+                        <span className="text-slate-700">ค่าธรรมเนียมปล่อยสินค้าทางโทรเลข (Telex Release / Surrender Fee)</span>
+                        <span className="text-slate-400 text-[11px]">(ต่อฉบับ)</span>
+                      </div>
+                      <span className="font-semibold text-slate-800 tabular-nums">
+                        ฿{lc.telex.toLocaleString('th-TH')} บาท
+                      </span>
+                    </div>
+                  ) : null}
+
+                  {/* Total Row */}
+                  <div className="p-2.5 bg-slate-100/90 flex items-center justify-between font-bold text-slate-900 border-t border-slate-200">
+                    <span>รวมประมาณการต้นทุน All-In ทั้งหมด (Grand Total):</span>
+                    <span className="tabular-nums text-sm text-slate-900">
+                      ${Math.round(grandTotalUsd).toLocaleString('en-US')}
+                      <span className="text-xs font-semibold text-slate-600 ml-1.5">(~฿{Math.round(grandTotalThb).toLocaleString('th-TH')} บาท)</span>
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -181,9 +278,8 @@ export const RateCard: React.FC<RateCardProps> = ({
                 )}
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:justify-between text-slate-600 text-[11px] pt-2.5 border-t border-slate-200 gap-1 font-medium">
-                <span>อัตราแลกเปลี่ยนอ้างอิง: 1 USD = {fxRate.toFixed(2)} THB | ไม่รวมภาษีมูลค่าเพิ่ม VAT 7% สำหรับ Local Charges</span>
-                <span className="text-slate-700 font-semibold">รอบราคา: {rateCyclePeriod}</span>
+              <div className="flex flex-col sm:flex-row sm:justify-end text-slate-600 text-[11px] pt-2.5 border-t border-slate-200 gap-1 font-medium">
+                <span className="text-slate-700 font-semibold">รอบราคาตามประกาศสายเรือ: {actualValidity}</span>
               </div>
 
             </div>
@@ -191,17 +287,17 @@ export const RateCard: React.FC<RateCardProps> = ({
 
         </div>
 
-        {/* Estimated All-In Total */}
+        {/* Ocean Freight Rate Box */}
         <div className="lg:border-l lg:border-slate-200 lg:pl-6 text-left lg:text-right flex flex-col justify-between shrink-0">
           <div>
             <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 block">
-              ประมาณการต้นทุนรวม All-In
+              ค่าระวางเรือ Ocean Freight
             </span>
             <div className="text-3xl font-extrabold text-slate-900 tracking-tight tabular-nums mt-0.5">
-              ${Math.round(grandTotalUsd).toLocaleString('en-US')}
+              ${Math.round(finalOfUsd).toLocaleString('en-US')}
             </div>
             <div className="text-xs font-semibold text-slate-600 tabular-nums mt-1">
-              ~฿{Math.round(grandTotalThb).toLocaleString('th-TH')} บาท
+              ~฿{Math.round(finalOfUsd * fxRate).toLocaleString('th-TH')} บาท
               <span className="text-slate-400 font-normal ml-1">({quantity} ตู้)</span>
             </div>
           </div>

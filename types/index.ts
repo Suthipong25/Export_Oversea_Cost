@@ -10,6 +10,7 @@ export interface FreightRate {
   routingDetail: string;
   schedule: string;
   notes: string;
+  validity?: string;
   localCharges: {
     thc20: number;
     thc40: number;

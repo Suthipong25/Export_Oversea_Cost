@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { X, Clock, Scale, FileText, Package } from 'lucide-react';
 import { CarrierKnowledge } from '../types';
 import { useRateCycle } from '../lib/rateCycle';
+import { getRouteValidity } from '../lib/carrierValidity';
 
 interface RemarksModalProps {
   isOpen: boolean;
@@ -65,9 +66,14 @@ export const RemarksModal: React.FC<RemarksModalProps> = ({
           {/* Right Content */}
           <div className="flex-1 p-6 overflow-y-auto space-y-4">
             
-            <div className="pb-3 border-b border-slate-200">
-              <h4 className="text-xl font-extrabold text-[#0A192F]">{activeCarrier}</h4>
-              <p className="text-xs text-slate-500 mt-0.5">ข้อกำหนดอย่างเป็นทางการ (Official Remarks & Guidelines) รอบ {monthYear}</p>
+            <div className="pb-3 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <h4 className="text-xl font-extrabold text-[#0A192F]">{activeCarrier}</h4>
+                <p className="text-xs text-slate-500 mt-0.5">ข้อกำหนดอย่างเป็นทางการ (Official Remarks & Guidelines)</p>
+              </div>
+              <span className="text-xs font-bold text-blue-900 bg-blue-50 border border-blue-200 px-2.5 py-1 rounded-md self-start sm:self-auto">
+                รอบราคา: {getRouteValidity(activeCarrier)}
+              </span>
             </div>
 
             {/* Quick Cards Grid */}

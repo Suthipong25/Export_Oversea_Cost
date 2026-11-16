@@ -3,6 +3,7 @@
 import React from 'react';
 import { Search, RotateCcw } from 'lucide-react';
 import { useRateCycle } from '../lib/rateCycle';
+import { getRouteValidity } from '../lib/carrierValidity';
 
 interface SearchSectionProps {
   origin: string;
@@ -54,7 +55,7 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
   onReset,
   allPorts
 }) => {
-  const { period: rateCyclePeriod } = useRateCycle();
+  const { monthYear } = useRateCycle();
   const [showDropdown, setShowDropdown] = React.useState(false);
   const [filteredPorts, setFilteredPorts] = React.useState<string[]>([]);
 
@@ -91,8 +92,11 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 border border-slate-200">
-            รอบราคา: {rateCyclePeriod}
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200">
+            {selectedCarrier 
+              ? `รอบราคา ${selectedCarrier}: ${getRouteValidity(selectedCarrier)}`
+              : `รอบราคา: อ้างอิงตามไฟล์ประกาศสายเรือ (${monthYear} • 14 - 30 วัน)`
+            }
           </span>
         </div>
       </div>
