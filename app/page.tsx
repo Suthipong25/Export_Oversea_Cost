@@ -20,7 +20,13 @@ export default function Home() {
   const [knowledgeBase, setKnowledgeBase] = useState<Record<string, CarrierKnowledge>>(
     initialDb.carrierKnowledgeBase as Record<string, CarrierKnowledge>
   );
-  const [allPorts] = useState<string[]>(initialDb.ports as string[]);
+  const allPorts = useMemo(() => {
+    const set = new Set<string>();
+    rates.forEach(r => {
+      if (r.pod && r.pod.trim()) set.add(r.pod.trim());
+    });
+    return Array.from(set).sort((a, b) => a.localeCompare(b));
+  }, [rates]);
 
   // Search & Filter States
   const [origin, setOrigin] = useState('LCH');

@@ -62,12 +62,12 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
   const handleDestChange = (val: string) => {
     setDestination(val);
     if (!val.trim()) {
-      setFilteredPorts(allPorts.slice(0, 50));
+      setFilteredPorts(allPorts);
       setShowDropdown(true);
     } else {
       const q = val.toLowerCase();
       const matched = allPorts.filter(p => p.toLowerCase().includes(q));
-      setFilteredPorts(matched.slice(0, 40));
+      setFilteredPorts(matched);
       setShowDropdown(matched.length > 0);
     }
   };
@@ -132,7 +132,7 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
                 <span>ท่าเรือปลายทาง (POD) <span className="text-red-500">*</span></span>
               </span>
               <span className="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
-                368 พอร์ต
+                {allPorts.length} พอร์ต
               </span>
             </label>
             <div className="relative">
@@ -143,7 +143,11 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
                 className="w-full pl-10 pr-4 py-3 text-sm font-semibold text-slate-800 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all h-[46px]"
                 onChange={(e) => handleDestChange(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Enter') onSearch(); }}
-                onFocus={() => { setFilteredPorts(allPorts.slice(0, 40)); setShowDropdown(true); }}
+                onFocus={() => {
+                  const currentQuery = destination.trim().toLowerCase();
+                  setFilteredPorts(currentQuery ? allPorts.filter(p => p.toLowerCase().includes(currentQuery)) : allPorts);
+                  setShowDropdown(true);
+                }}
                 onBlur={() => setTimeout(() => setShowDropdown(false), 250)}
               />
               <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -152,17 +156,23 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
 
               {/* Dynamic Dropdown */}
               {showDropdown && filteredPorts.length > 0 && (
-                <div className="absolute left-0 right-0 top-full mt-1.5 bg-white border border-slate-200 rounded-xl shadow-2xl z-30 max-h-72 overflow-y-auto p-1.5 text-xs divide-y divide-slate-100">
-                  {filteredPorts.map((p, idx) => (
-                    <div
-                      key={idx}
-                      onMouseDown={() => selectPort(p)}
-                      className="px-3.5 py-2.5 hover:bg-slate-100 hover:text-slate-900 cursor-pointer rounded-lg font-semibold flex items-center justify-between transition-colors"
-                    >
-                      <span>📍 {p}</span>
-                      <span className="text-[10px] text-slate-400">เลือกท่าเรือนี้</span>
-                    </div>
-                  ))}
+                <div className="absolute left-0 right-0 top-full mt-1.5 bg-white border border-slate-200 rounded-xl shadow-2xl z-30 overflow-hidden text-xs">
+                  <div className="bg-slate-50 px-3.5 py-2 text-[10px] font-bold text-slate-500 uppercase tracking-wider flex items-center justify-between border-b border-slate-200 select-none">
+                    <span>ท่าเรือทั้งหมด ({filteredPorts.length} พอร์ต)</span>
+                    <span className="text-[10px] font-normal text-slate-400">เลื่อนดู (A-Z) หรือพิมพ์ค้นหา</span>
+                  </div>
+                  <div className="max-h-72 overflow-y-auto p-1.5 divide-y divide-slate-100">
+                    {filteredPorts.map((p, idx) => (
+                      <div
+                        key={idx}
+                        onMouseDown={() => selectPort(p)}
+                        className="px-3.5 py-2.5 hover:bg-slate-100 hover:text-slate-900 cursor-pointer rounded-lg font-semibold flex items-center justify-between transition-colors"
+                      >
+                        <span>📍 {p}</span>
+                        <span className="text-[10px] text-slate-400">เลือกท่าเรือนี้</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
