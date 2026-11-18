@@ -1,14 +1,11 @@
 # Export Oversea Cost
 
-All-in sea freight rate search and comparison system built for **Perkin Logistics (Thailand)** — comparing ocean freight and Thailand local charges across **18 shipping lines** and **600+ destination ports**, with AI PDF parsing to extract carrier rate tables and remarks automatically.
+All-in sea freight rate search and comparison system built for **Perkin Logistics (Thailand)** â€” comparing ocean freight and Thailand local charges across **18 shipping lines** and **600+ destination ports**, with AI PDF parsing to extract carrier rate tables and remarks automatically.
 
-ระบบสืบค้นและเปรียบเทียบอัตราค่าระวางเรือส่งออก (Ocean Freight + Local Charges แบบ All-In) พร้อมระบบ AI สกัดตารางราคาและข้อกำหนด (Remarks) จากไฟล์ PDF สายเรืออัตโนมัติ
+à¸£à¸°à¸šà¸šà¸ªà¸·à¸šà¸„à¹‰à¸™à¹à¸¥à¸°à¹€à¸›à¸£à¸µà¸¢à¸šà¹€à¸—à¸µà¸¢à¸šà¸­à¸±à¸•à¸£à¸²à¸„à¹ˆà¸²à¸£à¸°à¸§à¸²à¸‡à¹€à¸£à¸·à¸­à¸ªà¹ˆà¸‡à¸­à¸­à¸ (Ocean Freight + Local Charges à¹à¸šà¸š All-In) à¸žà¸£à¹‰à¸­à¸¡à¸£à¸°à¸šà¸š AI à¸ªà¸à¸±à¸”à¸•à¸²à¸£à¸²à¸‡à¸£à¸²à¸„à¸²à¹à¸¥à¸°à¸‚à¹‰à¸­à¸à¸³à¸«à¸™à¸” (Remarks) à¸ˆà¸²à¸à¹„à¸Ÿà¸¥à¹Œ PDF à¸ªà¸²à¸¢à¹€à¸£à¸·à¸­à¸­à¸±à¸•à¹‚à¸™à¸¡à¸±à¸•à¸´
 
 **Live Demo:** https://exportoverseacost.vercel.app
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Suthipong25/Suthipong25/main/assets/preview-export-cost.png" alt="Export Oversea Cost UI" width="100%" />
-</p>
 
 ## Key Features
 
@@ -19,9 +16,9 @@ All-in sea freight rate search and comparison system built for **Perkin Logistic
 
 ## Tech Stack
 
-- **Framework:** Next.js 16 (App Router) · React 19 · TypeScript
+- **Framework:** Next.js 16 (App Router) Â· React 19 Â· TypeScript
 - **Database:** Supabase
-- **UI:** Tailwind CSS · Lucide Icons
+- **UI:** Tailwind CSS Â· Lucide Icons
 
 ## Getting Started
 
