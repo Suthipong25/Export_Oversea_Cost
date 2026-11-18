@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Export Oversea Cost
+
+All-in sea freight rate search and comparison system built for **Perkin Logistics (Thailand)** — comparing ocean freight and Thailand local charges across **18 shipping lines** and **600+ destination ports**, with AI PDF parsing to extract carrier rate tables and remarks automatically.
+
+ระบบสืบค้นและเปรียบเทียบอัตราค่าระวางเรือส่งออก (Ocean Freight + Local Charges แบบ All-In) พร้อมระบบ AI สกัดตารางราคาและข้อกำหนด (Remarks) จากไฟล์ PDF สายเรืออัตโนมัติ
+
+**Live Demo:** https://exportoverseacost.vercel.app
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Suthipong25/Suthipong25/main/assets/preview-export-cost.png" alt="Export Oversea Cost UI" width="100%" />
+</p>
+
+## Key Features
+
+- **Route & Carrier Search:** Filter by origin port (POL), 600+ destination ports (POD), and shipping lines (COSCO, HMM, PIL, RCL, Heung-A, CK Line, Interasia, Namsung, CULines, ESL, and more).
+- **Container & Equipment Selection:** Supports 20' Standard, 40' Standard, 40' High Cube, and 45' High Cube, plus Dry / Reefer / Special (OT/FR), SOC, and Hazardous (DG) flags.
+- **AI PDF Rate Extraction (/api/parse-pdf):** Upload carrier PDF rate sheets via PdfUploaderModal to extract structured freight rates, validity cycles, and carrier remarks automatically.
+- **Validity & Remarks Viewer:** Tracks active rate cycles and displays carrier-specific terms and surcharges (RemarksModal).
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router) · React 19 · TypeScript
+- **Database:** Supabase
+- **UI:** Tailwind CSS · Lucide Icons
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
