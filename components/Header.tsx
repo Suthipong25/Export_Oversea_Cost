@@ -36,12 +36,6 @@ export const Header: React.FC<HeaderProps> = ({
           <span className="font-black text-base sm:text-lg tracking-tight text-white hidden sm:inline-block">
             Perkin Logistics (Thailand) Co., Ltd.
           </span>
-          {isCloudLive && (
-            <span className="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-950/80 text-emerald-400 border border-emerald-500/30">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              Supabase Cloud Live ({ratesCount.toLocaleString()} เรท)
-            </span>
-          )}
         </div>
 
         {/* Action Buttons */}
