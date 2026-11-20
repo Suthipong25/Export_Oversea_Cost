@@ -2,9 +2,6 @@
 
 All-in sea freight rate search and comparison system built for **Perkin Logistics (Thailand)** â€” comparing ocean freight and Thailand local charges across **18 shipping lines** and **600+ destination ports**, with AI PDF parsing to extract carrier rate tables and remarks automatically.
 
-à¸£à¸°à¸šà¸šà¸ªà¸·à¸šà¸„à¹‰à¸™à¹à¸¥à¸°à¹€à¸›à¸£à¸µà¸¢à¸šà¹€à¸—à¸µà¸¢à¸šà¸­à¸±à¸•à¸£à¸²à¸„à¹ˆà¸²à¸£à¸°à¸§à¸²à¸‡à¹€à¸£à¸·à¸­à¸ªà¹ˆà¸‡à¸­à¸­à¸ (Ocean Freight + Local Charges à¹à¸šà¸š All-In) à¸žà¸£à¹‰à¸­à¸¡à¸£à¸°à¸šà¸š AI à¸ªà¸à¸±à¸”à¸•à¸²à¸£à¸²à¸‡à¸£à¸²à¸„à¸²à¹à¸¥à¸°à¸‚à¹‰à¸­à¸à¸³à¸«à¸™à¸” (Remarks) à¸ˆà¸²à¸à¹„à¸Ÿà¸¥à¹Œ PDF à¸ªà¸²à¸¢à¹€à¸£à¸·à¸­à¸­à¸±à¸•à¹‚à¸™à¸¡à¸±à¸•à¸´
-
-**Live Demo:** https://exportoverseacost.vercel.app
 
 
 ## Key Features
@@ -27,4 +24,3 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
