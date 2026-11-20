@@ -48,14 +48,7 @@ export const RateCard: React.FC<RateCardProps> = ({
 
   const logoPath = getCarrierLogoPath(rate.carrier);
 
-  const containerLabel =
-    containerType === '20'
-      ? "20' Standard"
-      : containerType === '40'
-      ? "40' Standard"
-      : containerType === '45'
-      ? "45' High Cube"
-      : "40' High Cube";
+  const containerLabel = containerType === '20' ? "20' Standard" : "40' High Cube";
 
   return (
     <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 hover:shadow-md hover:border-slate-300 transition-all duration-150">

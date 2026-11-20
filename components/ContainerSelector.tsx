@@ -18,23 +18,11 @@ const CONTAINERS = [
     svg: '/container_20.svg',
   },
   {
-    id: '40',
-    name: "40' Standard",
-    specs: "67.7 CBM • Max 26,500 kg",
-    svg: '/container_40.svg',
-  },
-  {
     id: '40hc',
     name: "40' High Cube (HQ)",
     specs: "76.4 CBM (สูง 9'6\")",
     svg: '/container_40hc.svg',
     isPopular: true,
-  },
-  {
-    id: '45',
-    name: "45' High Cube",
-    specs: "86.0 CBM • Extra Volume",
-    svg: '/container_45.svg',
   },
 ];
 
@@ -45,7 +33,7 @@ export const ContainerSelector: React.FC<ContainerSelectorProps> = ({
   onAdjustQty,
 }) => {
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
       {CONTAINERS.map((cntr) => {
         const isActive = activeType === cntr.id;
 
