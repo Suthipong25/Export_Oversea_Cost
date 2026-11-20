@@ -122,7 +122,6 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
               >
                 <option value="LCH">แหลมฉบัง (Laem Chabang)</option>
                 <option value="BKK">กรุงเทพฯ (Bangkok PAT)</option>
-                <option value="LKB">ลาดกระบัง ICD (+ รถไฟ)</option>
               </select>
             </div>
           </div>

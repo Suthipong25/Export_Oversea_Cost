@@ -498,13 +498,13 @@ export default function Home() {
                 ไม่พบข้อมูลเที่ยวเรือที่ให้บริการในเส้นทางนี้
               </h3>
               <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
-                ไม่มีสายเรือให้บริการจาก <strong>{origin === 'LCH' ? 'แหลมฉบัง (LCH)' : origin === 'BKK' ? 'กรุงเทพฯ (BKK)' : 'ICD ลาดกระบัง (LKB)'}</strong> ไปยัง <strong>&ldquo;{destination || 'พอร์ตปลายทาง'}&rdquo;</strong> ข้อมูลค่าระวางจึงไม่แสดงขึ้นมา
+                ไม่มีสายเรือให้บริการจาก <strong>{origin === 'LCH' ? 'แหลมฉบัง (LCH)' : 'กรุงเทพฯ (BKK)'}</strong> ไปยัง <strong>&ldquo;{destination || 'พอร์ตปลายทาง'}&rdquo;</strong> ข้อมูลค่าระวางจึงไม่แสดงขึ้นมา
               </p>
             </div>
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs text-slate-600 max-w-md mx-auto text-left space-y-1.5">
               <div className="font-bold text-slate-800">💡 ข้อแนะนำ:</div>
               <div>• ตรวจสอบการสะกดชื่อท่าเรือปลายทาง (POD) หรือคลิกเลือกจากรายชื่อท่าเรือในกล่องค้นหา</div>
-              <div>• หากเลือกท่าเรือกรุงเทพฯ (BKK) หรือ ICD ลาดกระบัง ลองสลับเป็น <strong>แหลมฉบัง (Laem Chabang)</strong> เพื่อดูเที่ยวเรือหลักของทุกสายเรือ</div>
+              <div>• หากเลือกท่าเรือกรุงเทพฯ (BKK) ลองสลับเป็น <strong>แหลมฉบัง (Laem Chabang)</strong> เพื่อดูเที่ยวเรือหลักของทุกสายเรือ</div>
             </div>
           </div>
         ) : (
