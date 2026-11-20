@@ -59,6 +59,8 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
   const [showDropdown, setShowDropdown] = React.useState(false);
   const [filteredPorts, setFilteredPorts] = React.useState<string[]>([]);
 
+  // กรองรายชื่อท่าเรือปลายทาง (603 พอร์ต) แบบ Real-time ตามคำที่พิมพ์
+  // หากช่องว่างเปล่าจะแสดงรายชื่อท่าเรือทั้งหมดเรียง A-Z ให้เลื่อนเลือกได้ทันที
   const handleDestChange = (val: string) => {
     setDestination(val);
     if (!val.trim()) {
@@ -72,6 +74,7 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
     }
   };
 
+  // เมื่อคลิกเลือกท่าเรือจาก Dropdown ให้ใส่ค่า ปิดเมนู และสั่งค้นหาทันที
   const selectPort = (port: string) => {
     setDestination(port);
     setShowDropdown(false);
@@ -93,7 +96,7 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
         </div>
         <div className="flex items-center gap-2">
           <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200">
-            {selectedCarrier 
+            {selectedCarrier && selectedCarrier !== 'ALL'
               ? `รอบราคา ${selectedCarrier}: ${getRouteValidity(selectedCarrier)}`
               : `รอบราคา: อ้างอิงตามไฟล์ประกาศสายเรือ (${monthYear} • 14 - 30 วัน)`
             }
@@ -186,7 +189,10 @@ export const SearchSection: React.FC<SearchSectionProps> = ({
             <div className="relative">
               <select
                 value={selectedCarrier}
-                onChange={(e) => { setSelectedCarrier(e.target.value); }}
+                onChange={(e) => {
+                  setSelectedCarrier(e.target.value);
+                  if (e.target.value !== 'ALL') onSearch();
+                }}
                 className="w-full pl-3 pr-7 py-3 text-sm font-semibold text-slate-800 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all appearance-none cursor-pointer h-[46px]"
               >
                 <option value="ALL">ทุกลายเรือ (ทั้งหมด)</option>

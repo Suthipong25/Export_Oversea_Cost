@@ -1,14 +1,22 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { BookOpen, FileUp } from 'lucide-react';
 
 interface HeaderProps {
   onOpenRemarks: () => void;
   onOpenPdfUploader: () => void;
+  isCloudLive?: boolean;
+  ratesCount?: number;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenRemarks, onOpenPdfUploader }) => {
+export const Header: React.FC<HeaderProps> = ({
+  onOpenRemarks,
+  onOpenPdfUploader,
+  isCloudLive = false,
+  ratesCount = 0
+}) => {
   return (
     <header className="bg-[#0A192F] text-white border-b border-blue-900/60 shadow-lg sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
@@ -16,15 +24,24 @@ export const Header: React.FC<HeaderProps> = ({ onOpenRemarks, onOpenPdfUploader
         {/* Brand Logo & Platform Title */}
         <div className="flex items-center gap-3">
           <div className="bg-white rounded-xl px-2.5 py-1 h-11 flex items-center justify-center shadow-md border border-white/10">
-            <img 
+            <Image 
               src="/perkin_logo.jpg" 
               alt="Perkin Logistics (Thailand) Co., Ltd." 
+              width={120}
+              height={32}
               className="h-8 w-auto object-contain"
+              priority
             />
           </div>
           <span className="font-black text-base sm:text-lg tracking-tight text-white hidden sm:inline-block">
             Perkin Logistics (Thailand) Co., Ltd.
           </span>
+          {isCloudLive && (
+            <span className="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-950/80 text-emerald-400 border border-emerald-500/30">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Supabase Cloud Live ({ratesCount.toLocaleString()} เรท)
+            </span>
+          )}
         </div>
 
         {/* Action Buttons */}

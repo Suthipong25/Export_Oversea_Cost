@@ -1,3 +1,11 @@
+export interface LocalCharges {
+  thc20: number;
+  thc40: number;
+  bl: number;
+  seal: number;
+  telex: number;
+}
+
 export interface FreightRate {
   carrier: string;
   region: string;
@@ -5,19 +13,16 @@ export interface FreightRate {
   pod: string;
   rate20: number;
   rate40: number;
+  rate40hq?: number;
   tt: string;
   routing: string;
   routingDetail: string;
   schedule: string;
   notes: string;
   validity?: string;
-  localCharges: {
-    thc20: number;
-    thc40: number;
-    bl: number;
-    seal: number;
-    telex: number;
-  };
+  validFrom?: string;
+  validTo?: string;
+  localCharges: LocalCharges;
 }
 
 export interface CarrierKnowledge {
@@ -27,6 +32,25 @@ export interface CarrierKnowledge {
   manifest?: string;
   localChargesNote?: string;
   specialRules?: string[];
+}
+
+export interface CostBreakdown {
+  baseOf: number;
+  lkbFee: number;
+  finalOfUsd: number;
+  thcUsd: number;
+  blUsd: number;
+  sealUsd: number;
+  telexUsd: number;
+  itemizedLocalUsd: number;
+  grandTotalUsd: number;
+}
+
+export interface CalculatedRate extends FreightRate {
+  ofUsd: number;
+  grandTotalUsd: number;
+  days: number;
+  costBreakdown: CostBreakdown;
 }
 
 export interface DatabasePayload {
