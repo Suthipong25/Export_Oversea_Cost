@@ -59,7 +59,7 @@ export const TariffTable: React.FC<TariffTableProps> = ({
               <th className="py-3 px-3 text-center">T/T</th>
               <th className="py-3 px-3">F/T</th>
               <th className="py-3 px-3">Valid date</th>
-              <th className="py-3 px-3">LOCAL CHARGE</th>
+              <th className="py-3 px-3 text-emerald-300">LOCAL CHARGE (THB)</th>
               <th className="py-3 px-4 min-w-[200px]">REMARKS</th>
             </tr>
           </thead>
@@ -68,7 +68,7 @@ export const TariffTable: React.FC<TariffTableProps> = ({
               const lkb = getLkbAddonValues(r.carrier, r.notes);
               const validity = r.validity || getRouteValidity(r.carrier, r.region);
               const kb = knowledgeBase[r.carrier] || {};
-              const lcSummary = formatLocalChargesSummary(r.localCharges, exchangeRate);
+              const lcSummary = formatLocalChargesSummary(r.localCharges);
 
               return (
                 <tr key={`${r.carrier}-${r.pod}-${i}`} className="hover:bg-blue-50/50 transition-colors">

@@ -36,6 +36,7 @@ export const RateCard: React.FC<RateCardProps> = ({
   const lkbAddon = getLkbAddonValues(rate.carrier, rate.notes);
   const is20 = containerType === '20';
   const isLKB = origin === 'LKB';
+  const lc = rate.localCharges || { thc20: 2800, thc40: 4300, bl: 1500, seal: 300, telex: 1500 };
 
   // คำนวณแจกแจงต้นทุนผ่าน Single Source of Truth
   const cost = calculateFreightCost({
@@ -238,11 +239,11 @@ export const RateCard: React.FC<RateCardProps> = ({
                     </div>
                   )}
 
-                  {/* Local Charges Section Header */}
+                  {/* Local Charges Section Header (THB Only) */}
                   <div className="px-3 py-1.5 bg-slate-100/70 text-[11px] font-bold text-slate-700 flex items-center justify-between">
-                    <span>ค่าใช้จ่ายท้องถิ่นในไทย (Local Charges in Thailand):</span>
+                    <span>ค่าใช้จ่ายท้องถิ่นในไทย (Local Charges in Thailand - THB):</span>
                     <span className="text-slate-900 font-bold tabular-nums">
-                      รวม ${cost.itemizedLocalUsd.toLocaleString('en-US')}
+                      รวม ฿{cost.totalLocalThb.toLocaleString('th-TH')} THB
                     </span>
                   </div>
 
@@ -252,11 +253,11 @@ export const RateCard: React.FC<RateCardProps> = ({
                       <span className="w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
                       <span className="text-slate-700">ค่าภาระยกขนตู้สินค้าที่ท่าเรือ (Terminal Handling Charge - THC)</span>
                       <span className="text-slate-400 text-[11px]">
-                        (${Math.round(cost.thcUsd / quantity)} x {quantity} ตู้)
+                        (฿{(is20 ? lc.thc20 : lc.thc40).toLocaleString('th-TH')} x {quantity} ตู้)
                       </span>
                     </div>
                     <span className="font-semibold text-slate-800 tabular-nums">
-                      ${cost.thcUsd.toLocaleString('en-US')}
+                      ฿{cost.thcThb.toLocaleString('th-TH')} THB
                     </span>
                   </div>
 
@@ -268,7 +269,7 @@ export const RateCard: React.FC<RateCardProps> = ({
                       <span className="text-slate-400 text-[11px]">(ต่อฉบับ)</span>
                     </div>
                     <span className="font-semibold text-slate-800 tabular-nums">
-                      ${cost.blUsd.toLocaleString('en-US')}
+                      ฿{cost.blThb.toLocaleString('th-TH')} THB
                     </span>
                   </div>
 
@@ -278,16 +279,16 @@ export const RateCard: React.FC<RateCardProps> = ({
                       <span className="w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
                       <span className="text-slate-700">ค่าซีลล็อคตู้คอนเทนเนอร์ (Container Seal Security Fee)</span>
                       <span className="text-slate-400 text-[11px]">
-                        (${Math.round(cost.sealUsd / quantity)} x {quantity} ตู้)
+                        (฿{lc.seal.toLocaleString('th-TH')} x {quantity} ตู้)
                       </span>
                     </div>
                     <span className="font-semibold text-slate-800 tabular-nums">
-                      ${cost.sealUsd.toLocaleString('en-US')}
+                      ฿{cost.sealThb.toLocaleString('th-TH')} THB
                     </span>
                   </div>
 
                   {/* 5. Telex / Surrender if exists */}
-                  {cost.telexUsd > 0 && (
+                  {cost.telexThb > 0 && (
                     <div className="p-2.5 flex items-center justify-between hover:bg-slate-50/70 transition-colors pl-6">
                       <div className="flex items-center gap-2">
                         <span className="w-1 h-1 rounded-full bg-slate-400 shrink-0"></span>
@@ -295,16 +296,16 @@ export const RateCard: React.FC<RateCardProps> = ({
                         <span className="text-slate-400 text-[11px]">(ต่อฉบับ)</span>
                       </div>
                       <span className="font-semibold text-slate-800 tabular-nums">
-                        ${cost.telexUsd.toLocaleString('en-US')}
+                        ฿{cost.telexThb.toLocaleString('th-TH')} THB
                       </span>
                     </div>
                   )}
 
                   {/* Total Row */}
-                  <div className="p-2.5 bg-slate-100/90 flex items-center justify-between font-bold text-slate-900 border-t border-slate-200">
-                    <span>รวมประมาณการต้นทุน All-In ทั้งหมด (Grand Total):</span>
-                    <span className="tabular-nums text-base font-extrabold text-slate-900">
-                      ${Math.round(cost.grandTotalUsd).toLocaleString('en-US')}
+                  <div className="p-2.5 bg-slate-100/90 flex flex-col sm:flex-row sm:items-center justify-between gap-1 font-bold text-slate-900 border-t border-slate-200">
+                    <span>สรุปประมาณการต้นทุนรวม (Ocean Freight + Local Charges):</span>
+                    <span className="tabular-nums text-sm sm:text-base font-extrabold text-slate-900">
+                      ${Math.round(cost.finalOfUsd).toLocaleString('en-US')} USD + ฿{cost.totalLocalThb.toLocaleString('th-TH')} THB
                     </span>
                   </div>
                 </div>

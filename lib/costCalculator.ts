@@ -86,18 +86,25 @@ export function calculateFreightCost({
   const lkbFee = calculateLkbFee(rate, origin, containerType);
   const finalOfUsd = (baseOf + lkbFee) * quantity;
 
-  // 2. Local Charges ในไทย (THB -> USD)
+  // 2. Local Charges ในไทย (เป็นเงินไทยบาท THB ล้วนอย่างเดียวเท่านั้น)
   const lc = rate.localCharges || DEFAULT_LOCAL_CHARGES;
   const baseThc = is20 ? lc.thc20 : lc.thc40;
 
-  // THC และ Seal คิดต่อตู้ (คูณ quantity)
-  const thcUsd = Math.round((baseThc * quantity) / fxRate);
-  const sealUsd = Math.round((lc.seal * quantity) / fxRate);
+  // THC และ Seal คิดต่อตู้ (คูณ quantity) เป็นเงินบาท
+  const thcThb = baseThc * quantity;
+  const sealThb = lc.seal * quantity;
 
-  // B/L และ Telex คิดต่อชิปเมนต์/ต่อชุด (ไม่คูณ quantity)
-  const blUsd = Math.round(lc.bl / fxRate);
-  const telexUsd = lc.telex ? Math.round(lc.telex / fxRate) : 0;
+  // B/L และ Telex คิดต่อชิปเมนต์/ต่อชุด (ไม่คูณ quantity) เป็นเงินบาท
+  const blThb = lc.bl;
+  const telexThb = lc.telex || 0;
 
+  const totalLocalThb = thcThb + blThb + sealThb + telexThb;
+
+  // ค่าเทียบเคียง USD สำหรับการคำนวณสถิติ
+  const thcUsd = Math.round(thcThb / fxRate);
+  const sealUsd = Math.round(sealThb / fxRate);
+  const blUsd = Math.round(blThb / fxRate);
+  const telexUsd = telexThb > 0 ? Math.round(telexThb / fxRate) : 0;
   const itemizedLocalUsd = thcUsd + blUsd + sealUsd + telexUsd;
   const grandTotalUsd = finalOfUsd + itemizedLocalUsd;
 
@@ -105,6 +112,11 @@ export function calculateFreightCost({
     baseOf,
     lkbFee,
     finalOfUsd,
+    thcThb,
+    blThb,
+    sealThb,
+    telexThb,
+    totalLocalThb,
     thcUsd,
     blUsd,
     sealUsd,
@@ -115,20 +127,13 @@ export function calculateFreightCost({
 }
 
 /**
- * สรุป Local Charges แสดงผลแบบสั้นในตาราง (THC, B/L, Seal แปลงเป็น USD)
+ * สรุป Local Charges แสดงผลแบบสั้นในตาราง (THC, B/L, Seal เป็นเงินไทยบาท THB ล้วน)
  */
 export function formatLocalChargesSummary(
-  localCharges?: LocalCharges,
-  exchangeRate = DEFAULT_EXCHANGE_RATE
+  localCharges?: LocalCharges
 ): string {
   const lc = localCharges || DEFAULT_LOCAL_CHARGES;
-  const fx = exchangeRate > 0 ? exchangeRate : DEFAULT_EXCHANGE_RATE;
-
-  const thcUsd = Math.round(lc.thc40 / fx);
-  const blUsd = Math.round(lc.bl / fx);
-  const sealUsd = Math.round(lc.seal / fx);
-
-  return `THC: $${thcUsd} | B/L: $${blUsd} | Seal: $${sealUsd}`;
+  return `THC: ฿${lc.thc40.toLocaleString()} | B/L: ฿${lc.bl.toLocaleString()} | Seal: ฿${lc.seal.toLocaleString()}`;
 }
 
 /**

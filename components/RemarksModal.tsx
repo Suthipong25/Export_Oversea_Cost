@@ -101,9 +101,9 @@ export const RemarksModal: React.FC<RemarksModalProps> = ({
 
               <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
                 <span className="font-bold text-slate-800 flex items-center gap-1.5 mb-1">
-                  <Package className="w-3.5 h-3.5 text-slate-600" /> Local Charges มาตรฐานในไทย:
+                  <Package className="w-3.5 h-3.5 text-slate-600" /> Local Charges มาตรฐานในไทย (บาท THB):
                 </span>
-                <span className="text-slate-800 font-semibold">{currentKb.localChargesNote || 'THC 2,800/4,300, B/L 1,500, Seal 300'}</span>
+                <span className="text-slate-800 font-semibold">{currentKb.localChargesNote || 'THC: ฿2,800/฿4,300, B/L: ฿1,500, Seal: ฿300 (THB)'}</span>
               </div>
             </div>
 

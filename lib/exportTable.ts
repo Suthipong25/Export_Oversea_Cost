@@ -15,7 +15,7 @@ export const TARIFF_TABLE_HEADERS = [
   'T/T',
   'F/T',
   'Valid date',
-  'LOCAL CHARGE',
+  'LOCAL CHARGE (THB)',
   'REMARKS',
 ];
 
@@ -33,7 +33,6 @@ export function generateTariffTsv({
   rates,
   origin,
   knowledgeBase,
-  exchangeRate = DEFAULT_EXCHANGE_RATE,
 }: GenerateTsvParams): string {
   const originLabel =
     origin === 'LCH'
@@ -46,7 +45,7 @@ export function generateTariffTsv({
     const lkb = getLkbAddonValues(r.carrier, r.notes);
     const validity = r.validity || getRouteValidity(r.carrier, r.region);
     const kb = knowledgeBase[r.carrier] || {};
-    const lcSummary = formatLocalChargesSummary(r.localCharges, exchangeRate);
+    const lcSummary = formatLocalChargesSummary(r.localCharges);
 
     return [
       r.pol || originLabel,

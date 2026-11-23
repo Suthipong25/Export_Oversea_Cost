@@ -38,6 +38,13 @@ export interface CostBreakdown {
   baseOf: number;
   lkbFee: number;
   finalOfUsd: number;
+  // Local Charges in Thailand (THB - เงินบาทไทยล้วน)
+  thcThb: number;
+  blThb: number;
+  sealThb: number;
+  telexThb: number;
+  totalLocalThb: number;
+  // USD conversions
   thcUsd: number;
   blUsd: number;
   sealUsd: number;
