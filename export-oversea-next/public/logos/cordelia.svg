@@ -1,0 +1,6 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" rx="20" fill="#08294D"/>
+  <path d="M22 45C32 30 55 30 65 42C55 52 38 52 28 45Z" fill="#00AEEF"/>
+  <path d="M35 55C45 42 68 42 78 54C68 64 51 64 41 55Z" fill="#FFFFFF"/>
+  <text x="50" y="82" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="10" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">CORDELIA</text>
+</svg>

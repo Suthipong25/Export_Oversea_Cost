@@ -1,0 +1,2490 @@
+[
+  {
+    "carrier": "CK LINE",
+    "pod": "Keelung",
+    "rate20": 350.0,
+    "rate40": 700.0,
+    "tt": "6 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Hochiminh (CAT LAI)",
+    "rate20": 60.0,
+    "rate40": 96.0,
+    "tt": "3 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Hochiminh (SP-ITC)",
+    "rate20": 60.0,
+    "rate40": 60.0,
+    "tt": "3 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Hochiminh (TAN CANG HIEP PHUOC)",
+    "rate20": 60.0,
+    "rate40": 96.0,
+    "tt": "3 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Shanghai",
+    "rate20": 80.0,
+    "rate40": 128.0,
+    "tt": "9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 200.0,
+    "rate40": 400.0,
+    "tt": "15 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 200.0,
+    "rate40": 400.0,
+    "tt": "15 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Incheon",
+    "rate20": 450.0,
+    "rate40": 800.0,
+    "tt": "15 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Pusan",
+    "rate20": 100.0,
+    "rate40": 200.0,
+    "tt": "10 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Tokyo",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Nagoya",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Osaka",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 50.0,
+    "rate40": 300.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 51.0,
+    "rate40": 300.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 52.0,
+    "rate40": 300.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 53.0,
+    "rate40": 300.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 54.0,
+    "rate40": 300.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 55.0,
+    "rate40": 300.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 56.0,
+    "rate40": 300.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 57.0,
+    "rate40": 300.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 58.0,
+    "rate40": 300.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 59.0,
+    "rate40": 300.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 60.0,
+    "rate40": 800.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 61.0,
+    "rate40": 500.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 62.0,
+    "rate40": 500.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 63.0,
+    "rate40": 500.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 64.0,
+    "rate40": 500.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 65.0,
+    "rate40": 500.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 66.0,
+    "rate40": 500.0,
+    "tt": "17-18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CK LINE",
+    "pod": "Busan",
+    "rate20": 67.0,
+    "rate40": 2500.0,
+    "tt": "21 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CORDELIA",
+    "pod": "Transit via Singapore",
+    "rate20": 1307.0,
+    "rate40": 1807.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CORDELIA",
+    "pod": "Port Klang (West)",
+    "rate20": 257.0,
+    "rate40": 457.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CORDELIA",
+    "pod": "Port Klang (West)",
+    "rate20": 157.0,
+    "rate40": 257.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CORDELIA",
+    "pod": "Singapore",
+    "rate20": 177.0,
+    "rate40": 357.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CORDELIA",
+    "pod": "Singapore",
+    "rate20": 77.0,
+    "rate40": 187.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CORDELIA",
+    "pod": "Nhava Sheva",
+    "rate20": 2207.0,
+    "rate40": 3207.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Bangkok",
+    "rate20": 80.0,
+    "rate40": 140.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Shanghai (China)",
+    "rate20": 80.0,
+    "rate40": 140.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 50.0,
+    "rate40": 60.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 50.0,
+    "rate40": 80.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 50.0,
+    "rate40": 80.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 50.0,
+    "rate40": 80.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 50.0,
+    "rate40": 80.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 200.0,
+    "rate40": 350.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Incheon (Korea)",
+    "rate20": 250.0,
+    "rate40": 450.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 200.0,
+    "rate40": 300.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Tokyo / Yokohama / Nagoya / Osaka (JTV)",
+    "rate20": 250.0,
+    "rate40": 400.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 175.0,
+    "rate40": 300.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 2325.0,
+    "rate40": 4650.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang / BKK",
+    "rate20": 2325.0,
+    "rate40": 4650.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "BKK & Laem Chabang",
+    "rate20": 1625.0,
+    "rate40": 3250.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 2200.0,
+    "rate40": 2550.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 2200.0,
+    "rate40": 2600.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 1950.0,
+    "rate40": 2150.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 2150.0,
+    "rate40": 2400.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 2600.0,
+    "rate40": 3700.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 2250.0,
+    "rate40": 2500.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 1700.0,
+    "rate40": 1700.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "COSCO",
+    "pod": "Laem Chabang",
+    "rate20": 2400.0,
+    "rate40": 3300.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CULINES",
+    "pod": "Shanghai",
+    "rate20": 50.0,
+    "rate40": 80.0,
+    "tt": "8-10 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CULINES",
+    "pod": "Ningbo",
+    "rate20": 50.0,
+    "rate40": 80.0,
+    "tt": "8-10 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CULINES",
+    "pod": "Manila North",
+    "rate20": 900.0,
+    "rate40": 1800.0,
+    "tt": "+15 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CULINES",
+    "pod": "Laem Chabang",
+    "rate20": 2400.0,
+    "rate40": 2800.0,
+    "tt": "14 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CULINES",
+    "pod": "Laem Chabang",
+    "rate20": 2600.0,
+    "rate40": 2900.0,
+    "tt": "16 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CULINES",
+    "pod": "Laem Chabang",
+    "rate20": 2600.0,
+    "rate40": 2900.0,
+    "tt": "18 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "CULINES",
+    "pod": "Laem Chabang",
+    "rate20": 4500.0,
+    "rate40": 7200.0,
+    "tt": "33-34 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "CULINES",
+    "pod": "Laem Chabang",
+    "rate20": 4600.0,
+    "rate40": 7360.0,
+    "tt": "30-40 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Qingdao",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Jakarta (Laem Chabang)",
+    "rate20": 150.0,
+    "rate40": 250.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Keelung",
+    "rate20": 400.0,
+    "rate40": 800.0,
+    "tt": "9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Pusan",
+    "rate20": 100.0,
+    "rate40": 200.0,
+    "tt": "16 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Tokyo",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Nagoya",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Osaka",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 50.0,
+    "rate40": 300.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 51.0,
+    "rate40": 450.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 52.0,
+    "rate40": 450.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 53.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 54.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 55.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 56.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 57.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 58.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 59.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 60.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 61.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 62.0,
+    "rate40": 500.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 63.0,
+    "rate40": 1200.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 64.0,
+    "rate40": 1300.0,
+    "tt": "21 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HEUNG A",
+    "pod": "Busan",
+    "rate20": 65.0,
+    "rate40": 2500.0,
+    "tt": "21 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "HMM",
+    "pod": "Hochiminh (Cat Lai)",
+    "rate20": 150.0,
+    "rate40": 150.0,
+    "tt": "Combined 14 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "HMM",
+    "pod": "Manila North / South",
+    "rate20": 350.0,
+    "rate40": 550.0,
+    "tt": "Combined 21 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "HMM",
+    "pod": "Manila North / South",
+    "rate20": 400.0,
+    "rate40": 650.0,
+    "tt": "Combined 21 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "HMM",
+    "pod": "Shanghai (Wai Gao Qiao 1)",
+    "rate20": 200.0,
+    "rate40": 250.0,
+    "tt": "Det 21 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "HMM",
+    "pod": "Shanghai (Wai Gao Qiao 2)",
+    "rate20": 200.0,
+    "rate40": 250.0,
+    "tt": "Det 21 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "HMM",
+    "pod": "Ningbo (Beilun Phase 3)",
+    "rate20": 200.0,
+    "rate40": 250.0,
+    "tt": "Det 21 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "HMM",
+    "pod": "Busan",
+    "rate20": 80.0,
+    "rate40": 160.0,
+    "tt": "Combined 21 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "HMM",
+    "pod": "Busan",
+    "rate20": 80.0,
+    "rate40": 160.0,
+    "tt": "Combined 21 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "HMM",
+    "pod": "Busan",
+    "rate20": 150.0,
+    "rate40": 250.0,
+    "tt": "Combined 21 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INFINITY",
+    "pod": "Port Klang (West), Malaysia",
+    "rate20": 250.0,
+    "rate40": 350.0,
+    "tt": "5 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INFINITY",
+    "pod": "Port Klang (North), Malaysia",
+    "rate20": 400.0,
+    "rate40": 550.0,
+    "tt": "5 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INFINITY",
+    "pod": "Singapore, Singapore",
+    "rate20": 250.0,
+    "rate40": 350.0,
+    "tt": "3 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INFINITY",
+    "pod": "Via Tanjung / Singapore",
+    "rate20": 900.0,
+    "rate40": 1650.0,
+    "tt": "15 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "INFINITY",
+    "pod": "T/S Singapore",
+    "rate20": 350.0,
+    "rate40": 650.0,
+    "tt": "12 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "INFINITY",
+    "pod": "Jakarta, Indonesia",
+    "rate20": 350.0,
+    "rate40": 500.0,
+    "tt": "5 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INFINITY",
+    "pod": "Nhava Sheva, India",
+    "rate20": 2450.0,
+    "rate40": 3100.0,
+    "tt": "10-13 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Manila North / South",
+    "rate20": 500.0,
+    "rate40": 800.0,
+    "tt": "20-25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Osaka (Japan)",
+    "rate20": 200.0,
+    "rate40": 400.0,
+    "tt": "12 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Keelung / Taoyuan",
+    "rate20": 400.0,
+    "rate40": 600.0,
+    "tt": "10 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Laem Chabang",
+    "rate20": 300.0,
+    "rate40": 500.0,
+    "tt": "2 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Laem Chabang",
+    "rate20": 200.0,
+    "rate40": 400.0,
+    "tt": "2 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Laem Chabang",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Laem Chabang",
+    "rate20": 200.0,
+    "rate40": 400.0,
+    "tt": "4 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Laem Chabang",
+    "rate20": 200.0,
+    "rate40": 400.0,
+    "tt": "4 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Laem Chabang",
+    "rate20": 300.0,
+    "rate40": 500.0,
+    "tt": "11 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Laem Chabang",
+    "rate20": 2300.0,
+    "rate40": 3000.0,
+    "tt": "15 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Laem Chabang",
+    "rate20": 2300.0,
+    "rate40": 3000.0,
+    "tt": "10 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Laem Chabang",
+    "rate20": 2300.0,
+    "rate40": 3000.0,
+    "tt": "13-17 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Laem Chabang",
+    "rate20": 2300.0,
+    "rate40": 3000.0,
+    "tt": "12 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Laem Chabang",
+    "rate20": 2400.0,
+    "rate40": 3200.0,
+    "tt": "14 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "INTERASIA",
+    "pod": "Laem Chabang",
+    "rate20": 3000.0,
+    "rate40": 3500.0,
+    "tt": "25 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "MARINUS",
+    "pod": "Singapore",
+    "rate20": 150.0,
+    "rate40": 225.0,
+    "tt": "14 Days DET",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "MARINUS",
+    "pod": "Port Klang",
+    "rate20": 150.0,
+    "rate40": 225.0,
+    "tt": "14 Days DET",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "MARINUS",
+    "pod": "Nhava Sheva + ICDs",
+    "rate20": 2200.0,
+    "rate40": 2750.0,
+    "tt": "14 Days DET",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "MARINUS",
+    "pod": "Via Port Klang",
+    "rate20": 2000.0,
+    "rate40": 3200.0,
+    "tt": "14 Days DET",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "NAMSUNG",
+    "pod": "Shanghai, Ningbo, Nanjing, Qingdao, Xingang, Dalian, etc.",
+    "rate20": 200.0,
+    "rate40": 400.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Singapore",
+    "rate20": 200.0,
+    "rate40": 300.0,
+    "tt": "6 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 200.0,
+    "rate40": 300.0,
+    "tt": "5 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 350.0,
+    "rate40": 700.0,
+    "tt": "10 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 750.0,
+    "rate40": 1400.0,
+    "tt": "8 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 750.0,
+    "rate40": 1500.0,
+    "tt": "8 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 700.0,
+    "rate40": 1300.0,
+    "tt": "8 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 250.0,
+    "rate40": 600.0,
+    "tt": "8 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 600.0,
+    "rate40": 1100.0,
+    "tt": "12 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 650.0,
+    "rate40": 1350.0,
+    "tt": "12 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 400.0,
+    "rate40": 850.0,
+    "tt": "5 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 400.0,
+    "rate40": 500.0,
+    "tt": "5 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 200.0,
+    "rate40": 450.0,
+    "tt": "10 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 200.0,
+    "rate40": 450.0,
+    "tt": "10 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "9 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Laem Chabang",
+    "rate20": 750.0,
+    "rate40": 1800.0,
+    "tt": "7 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 2500.0,
+    "rate40": 4900.0,
+    "tt": "11 Days F/T",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 2500.0,
+    "rate40": 4900.0,
+    "tt": "11 Days F/T",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 1750.0,
+    "rate40": 3350.0,
+    "tt": "14 Days F/T",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 1750.0,
+    "rate40": 3350.0,
+    "tt": "14 Days F/T",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 4750.0,
+    "rate40": 7600.0,
+    "tt": "12 Days F/T",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 4650.0,
+    "rate40": 7440.0,
+    "tt": "14 Days F/T",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 4700.0,
+    "rate40": 7520.0,
+    "tt": "10 Days F/T",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 1700.0,
+    "rate40": 2300.0,
+    "tt": "4 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 1800.0,
+    "rate40": 2600.0,
+    "tt": "4 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 2000.0,
+    "rate40": 2500.0,
+    "tt": "4 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 1800.0,
+    "rate40": 2700.0,
+    "tt": "4 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "Nhava Sheva (India)",
+    "rate20": 3300.0,
+    "rate40": 3300.0,
+    "tt": "4 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 3300.0,
+    "rate40": 3300.0,
+    "tt": "4 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 3500.0,
+    "rate40": 3500.0,
+    "tt": "7 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 3800.0,
+    "rate40": 6080.0,
+    "tt": "7 Days F/T",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 3500.0,
+    "rate40": 5600.0,
+    "tt": "7-10 Days F/T",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 3400.0,
+    "rate40": 4200.0,
+    "tt": "10-14 Days F/T",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 4200.0,
+    "rate40": 6720.0,
+    "tt": "5 Days F/T",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "PIL",
+    "pod": "T/S Singapore",
+    "rate20": 3900.0,
+    "rate40": 6240.0,
+    "tt": "7 Days F/T",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "Singapore",
+    "rate20": 150.0,
+    "rate40": 250.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "Port Klang (West), Malaysia",
+    "rate20": 180.0,
+    "rate40": 300.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Singapore",
+    "rate20": 350.0,
+    "rate40": 500.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Singapore",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "Jakarta (Tanjung Priok)",
+    "rate20": 175.0,
+    "rate40": 330.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Singapore",
+    "rate20": 400.0,
+    "rate40": 750.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Singapore",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Singapore",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Jakarta",
+    "rate20": 550.0,
+    "rate40": 950.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "Manila North (RBC5)",
+    "rate20": 550.0,
+    "rate40": 1150.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Singapore",
+    "rate20": 800.0,
+    "rate40": 1700.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Singapore",
+    "rate20": 1100.0,
+    "rate40": 2200.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "Shanghai (RBC13/2)",
+    "rate20": 50.0,
+    "rate40": 100.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "Ningbo (RBC13/2)",
+    "rate20": 50.0,
+    "rate40": 100.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Shanghai",
+    "rate20": 250.0,
+    "rate40": 350.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Shanghai",
+    "rate20": 400.0,
+    "rate40": 600.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "Qingdao (RNT)",
+    "rate20": 50.0,
+    "rate40": 100.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "Pusan / Incheon (RNV2)",
+    "rate20": 300.0,
+    "rate40": 500.0,
+    "tt": "8 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Singapore",
+    "rate20": 500.0,
+    "rate40": 1000.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Singapore",
+    "rate20": 600.0,
+    "rate40": 1300.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Shanghai",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Shanghai",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Port Klang",
+    "rate20": 2200.0,
+    "rate40": 2700.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Singapore",
+    "rate20": 2500.0,
+    "rate40": 2900.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "T/S Singapore",
+    "rate20": 3100.0,
+    "rate40": 3300.0,
+    "tt": "14 Days Combine",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "RCL",
+    "pod": "Nhava Sheva (INNSA)",
+    "rate20": 2800.0,
+    "rate40": 3000.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA LOG",
+    "pod": "Singapore",
+    "rate20": 150.0,
+    "rate40": 300.0,
+    "tt": "3 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA LOG",
+    "pod": "Port Klang W (Malaysia)",
+    "rate20": 150.0,
+    "rate40": 300.0,
+    "tt": "4-5 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA LOG",
+    "pod": "Nhava Sheva (India)",
+    "rate20": 2650.0,
+    "rate40": 3300.0,
+    "tt": "15 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA LOG",
+    "pod": "Via Singapore",
+    "rate20": 3300.0,
+    "rate40": 4700.0,
+    "tt": "40-50 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SEA LOG",
+    "pod": "Via Port Klang",
+    "rate20": 3400.0,
+    "rate40": 3600.0,
+    "tt": "22 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SEA LOG",
+    "pod": "Via Singapore",
+    "rate20": 2100.0,
+    "rate40": 3200.0,
+    "tt": "40-50 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Bangkok (BKK)",
+    "rate20": 240.0,
+    "rate40": 320.0,
+    "tt": "5 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Laem Chabang (LCH)",
+    "rate20": 100.0,
+    "rate40": 140.0,
+    "tt": "5 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Bangkok (BKK)",
+    "rate20": 200.0,
+    "rate40": 400.0,
+    "tt": "3 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Laem Chabang (LCH)",
+    "rate20": 150.0,
+    "rate40": 260.0,
+    "tt": "3 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Jakarta, Indonesia",
+    "rate20": 320.0,
+    "rate40": 420.0,
+    "tt": "5 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Laem Chabang (LCH)",
+    "rate20": 140.0,
+    "rate40": 240.0,
+    "tt": "5 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Bangkok (BKK)",
+    "rate20": 100.0,
+    "rate40": 140.0,
+    "tt": "3 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Laem Chabang (LCH)",
+    "rate20": 80.0,
+    "rate40": 120.0,
+    "tt": "3 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Bangkok (BKK)",
+    "rate20": 120.0,
+    "rate40": 200.0,
+    "tt": "5 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Laem Chabang (LCH)",
+    "rate20": 100.0,
+    "rate40": 180.0,
+    "tt": "5 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Bangkok (BKK)",
+    "rate20": 1750.0,
+    "rate40": 2800.0,
+    "tt": "10 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Laem Chabang (LCH)",
+    "rate20": 1600.0,
+    "rate40": 2560.0,
+    "tt": "10 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Bangkok (BKK)",
+    "rate20": 2500.0,
+    "rate40": 3700.0,
+    "tt": "16-18 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Laem Chabang (LCH)",
+    "rate20": 2300.0,
+    "rate40": 3500.0,
+    "tt": "16-18 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Bangkok (BKK)",
+    "rate20": 2500.0,
+    "rate40": 3700.0,
+    "tt": "16-18 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Laem Chabang (LCH)",
+    "rate20": 2300.0,
+    "rate40": 3500.0,
+    "tt": "16-18 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Bangkok (BKK)",
+    "rate20": 1800.0,
+    "rate40": 2750.0,
+    "tt": "18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Laem Chabang (LCH)",
+    "rate20": 1650.0,
+    "rate40": 2500.0,
+    "tt": "18 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Bangkok (BKK)",
+    "rate20": 2250.0,
+    "rate40": 3050.0,
+    "tt": "17-19 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Laem Chabang (LCH)",
+    "rate20": 2050.0,
+    "rate40": 2850.0,
+    "tt": "17-19 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Bangkok (BKK)",
+    "rate20": 2700.0,
+    "rate40": 3700.0,
+    "tt": "13-15 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SEA STAR",
+    "pod": "Laem Chabang (LCH)",
+    "rate20": 2500.0,
+    "rate40": 3500.0,
+    "tt": "13-15 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Laem Chabang",
+    "rate20": 450.0,
+    "rate40": 900.0,
+    "tt": "21 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok (PAT)",
+    "rate20": 200.0,
+    "rate40": 300.0,
+    "tt": "21 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok (PAT, LKB)",
+    "rate20": 50.0,
+    "rate40": 80.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok (LKB)",
+    "rate20": 50.0,
+    "rate40": 50.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Laem Chabang",
+    "rate20": 50.0,
+    "rate40": 50.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok (PAT)",
+    "rate20": 50.0,
+    "rate40": 50.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Laem Chabang",
+    "rate20": 50.0,
+    "rate40": 50.0,
+    "tt": "Fast 4 days Direct | AFS $30/set",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok (PAT)",
+    "rate20": 50.0,
+    "rate40": 50.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Laem Chabang",
+    "rate20": 200.0,
+    "rate40": 400.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok (LKB)",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Laem Chabang",
+    "rate20": 350.0,
+    "rate40": 700.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok (SHT)",
+    "rate20": 450.0,
+    "rate40": 900.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Singapore",
+    "rate20": 200.0,
+    "rate40": 250.0,
+    "tt": "Fast 3 days Direct",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Singapore",
+    "rate20": 320.0,
+    "rate40": 450.0,
+    "tt": "14 Days Combine",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Laem Chabang",
+    "rate20": 50.0,
+    "rate40": 50.0,
+    "tt": "Direct 3 days | Incl. LSS",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok",
+    "rate20": 50.0,
+    "rate40": 50.0,
+    "tt": "Direct 3 days | Incl. LSS",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Laem Chabang",
+    "rate20": 50.0,
+    "rate40": 80.0,
+    "tt": "14/7 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok (LKB)",
+    "rate20": 125.0,
+    "rate40": 250.0,
+    "tt": "14/7 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Laem Chabang",
+    "rate20": 175.0,
+    "rate40": 350.0,
+    "tt": "14/7 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok (LKB)",
+    "rate20": 275.0,
+    "rate40": 550.0,
+    "tt": "14/7 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Laem Chabang",
+    "rate20": 2100.0,
+    "rate40": 2900.0,
+    "tt": "14 Days DET",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok (LKB)",
+    "rate20": 2200.0,
+    "rate40": 3100.0,
+    "tt": "14 Days DET",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Laem Chabang",
+    "rate20": 2000.0,
+    "rate40": 2800.0,
+    "tt": "14 Days DET",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok (LKB)",
+    "rate20": 2100.0,
+    "rate40": 3000.0,
+    "tt": "14 Days DET",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Laem Chabang",
+    "rate20": 2000.0,
+    "rate40": 2800.0,
+    "tt": "14 Days DET",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SIAM LINER",
+    "pod": "Bangkok (LKB)",
+    "rate20": 2100.0,
+    "rate40": 3000.0,
+    "tt": "14 Days DET",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "SINOKOR",
+    "pod": "Shanghai (THSRP only)",
+    "rate20": 50.0,
+    "rate40": 80.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SINOKOR",
+    "pod": "Hochiminh (Cat Lai)",
+    "rate20": 60.0,
+    "rate40": 96.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SINOKOR",
+    "pod": "Jakarta (THLCH only)",
+    "rate20": 150.0,
+    "rate40": 250.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SINOKOR",
+    "pod": "Keelung",
+    "rate20": 300.0,
+    "rate40": 600.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SINOKOR",
+    "pod": "Tokyo",
+    "rate20": 200.0,
+    "rate40": 400.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SINOKOR",
+    "pod": "Nagoya",
+    "rate20": 200.0,
+    "rate40": 400.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SINOKOR",
+    "pod": "Osaka",
+    "rate20": 250.0,
+    "rate40": 500.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SINOKOR",
+    "pod": "Pusan",
+    "rate20": 100.0,
+    "rate40": 200.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SINOKOR",
+    "pod": "Incheon",
+    "rate20": 150.0,
+    "rate40": 300.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SINOKOR",
+    "pod": "T/S Busan",
+    "rate20": 5000.0,
+    "rate40": 8000.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SINOKOR",
+    "pod": "T/S Busan",
+    "rate20": 1500.0,
+    "rate40": 1700.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "SINOKOR",
+    "pod": "T/S Busan",
+    "rate20": 2500.0,
+    "rate40": 3000.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Tokyo",
+    "rate20": 210.0,
+    "rate40": 380.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Nagoya",
+    "rate20": 210.0,
+    "rate40": 380.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Osaka",
+    "rate20": 210.0,
+    "rate40": 380.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Keelung",
+    "rate20": 300.0,
+    "rate40": 500.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Qingdao",
+    "rate20": 60.0,
+    "rate40": 50.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Yangtze River feeder via Shanghai",
+    "rate20": 100.0,
+    "rate40": 200.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Yangtze River feeder via Shanghai",
+    "rate20": 100.0,
+    "rate40": 200.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Yangtze River feeder via Shanghai (2H rate)",
+    "rate20": 150.0,
+    "rate40": 300.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Yangtze River feeder via Shanghai",
+    "rate20": 200.0,
+    "rate40": 350.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Yangtze River feeder via Shanghai (2H rate)",
+    "rate20": 350.0,
+    "rate40": 650.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Yangtze River feeder via Shanghai",
+    "rate20": 400.0,
+    "rate40": 650.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Yangtze River feeder via Shanghai",
+    "rate20": 100.0,
+    "rate40": 200.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Yangtze River feeder via Shanghai",
+    "rate20": 100.0,
+    "rate40": 200.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Yangtze River feeder via Shanghai",
+    "rate20": 100.0,
+    "rate40": 200.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Yangtze River feeder via Shanghai",
+    "rate20": 100.0,
+    "rate40": 200.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Yangtze River feeder via Shanghai",
+    "rate20": 100.0,
+    "rate40": 200.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Ningbo",
+    "rate20": 50.0,
+    "rate40": 50.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Manila North",
+    "rate20": 51.0,
+    "rate40": 700.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Manila South",
+    "rate20": 52.0,
+    "rate40": 850.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Port Klang (WSP)",
+    "rate20": 53.0,
+    "rate40": 150.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Singapore",
+    "rate20": 54.0,
+    "rate40": 200.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "Nhava Sheva (NSFT)",
+    "rate20": 56.0,
+    "rate40": 2400.0,
+    "tt": "5-9 Days",
+    "routing": "DIRECT"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "By case check via Shanghai",
+    "rate20": 62.0,
+    "rate40": 99.2,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  },
+  {
+    "carrier": "TSL",
+    "pod": "India ICD via Mundra / Nhava Sheva",
+    "rate20": 100.0,
+    "rate40": 100.0,
+    "tt": "5-9 Days",
+    "routing": "T/S"
+  }
+]

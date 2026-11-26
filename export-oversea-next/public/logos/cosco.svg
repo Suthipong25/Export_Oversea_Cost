@@ -1,0 +1,7 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="46" fill="#002F6C"/>
+  <circle cx="50" cy="50" r="41" stroke="#FFFFFF" stroke-width="2.5"/>
+  <path d="M26 43C32 37 40 37 46 43C52 49 60 49 66 43C72 37 80 43 74 49C68 55 60 55 54 49C48 43 40 43 34 49C28 55 20 49 26 43Z" fill="#00A3E0"/>
+  <path d="M26 53C32 47 40 47 46 53C52 59 60 59 66 53C72 47 80 53 74 59C68 65 60 65 54 59C48 53 40 53 34 59C28 65 20 59 26 53Z" fill="#FFFFFF"/>
+  <text x="50" y="76" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="13" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">COSCO</text>
+</svg>
